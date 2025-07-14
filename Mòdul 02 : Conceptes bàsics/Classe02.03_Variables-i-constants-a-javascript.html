@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables i constants a JavaScript</title>
+</head>
+<body>
+    <h1>
+        Variables i constants a JavaScript
+    </h1>
+
+    <p>
+        Per practicar amb les variables i les constants utilitzarem <a href="https://jsbin.com/?html,js">JS Bin</a>. Entrem-hi! i activem el mòdul de JavaScript a l'esquerra i la consola a la dreta.
+    </p>
+
+    <h2>
+        Variables
+    </h2>
+
+    <p>
+        Comencem posant declarant la variable nom posant...
+    </p>
+
+    <pre>
+        <code>
+            let nom;
+        </code>
+    </pre>
+
+    <p>
+        o posant... 
+    </p>
+
+    <pre>
+        <code>
+            var nom;
+        </code>
+    </pre>
+    
+    <p>
+        La diferència entre let i var l'explicarem més endavant. Per ara, només hem declarat la variable nom però no li hem assignat cap valor. Anem a fer-ho utilitzant l'operador = ...
+    </p>
+
+    <pre>
+        <code>
+            nom = "Anna";
+        </code>
+    </pre>
+
+    <p>
+        Com que "nom" és una variable i li hem assignat un cadena de text o string, JS que és de tipatge dinàmic ja sap que tenim un string dins de la variable nom.
+    </p>
+
+    <p>
+        Com que és una variable, li podem assignar un altre cadena de text...
+    </p>
+
+    <pre>
+        <code>
+            nom = "Oriol";
+        </code>
+    </pre>
+
+    <p>
+        Li podem assignar un nombre, si voleu...
+    </p>
+
+    <pre>
+        <code>
+            nom = 25;
+        </code>
+    </pre>
+
+    <p>
+        Noteu que heu assignat un valor a una variable i després li heu assignat dos altres valors més però res ha aparegut en pantalla. No apareix res perquè no li hem dit que faci aparèixer res. Anem-li a dir que imprimeixi la variable a la consola...
+    </p>
+
+    <pre>
+        <code>
+            let nom;
+            nom = "Anna"
+            console.log(nom)
+        </code>
+    </pre>
+
+    <p>
+        Reassignem el valor de la variable i imprimim-la per consola
+    </p>
+
+    <pre>
+        <code>
+            let nom;
+            nom = "Anna";
+            nom = "Oriol";
+            console.log(nom)
+        </code>
+    </pre>
+
+    <p>
+        Reassignem una segona vegada amb un nombre i imprimim-la per consola
+    </p>
+
+    <pre>
+        <code>
+            let nom;
+            nom = "Anna";
+            nom = "Oriol";
+            nom = 27;
+            console.log(nom)
+        </code>
+    </pre>
+
+    <p>
+        També podem imprimir cada vegada el valor de la variable abans de reassignar-la per veure com el valor de la variable va canviant.
+    </p>
+
+    <pre>
+        <code>
+            let nom;
+            nom = "Anna";
+            console.log(nom);
+            nom = "Oriol"
+            console.log(nom);
+            nom = 27;
+            console.log(nom)
+        </code>
+    </pre>
+
+    <p>
+        Per saber quin tipus de variable tenim, podem fer servir la funció typeof...
+    </p>
+
+    <pre>
+        <code>
+            let nom;
+            nom = "Anna";
+            typeof(nom)
+        </code>
+    </pre>
+
+    <p>
+        Si no la posem dins la consola no veurem quin tipus és
+    </p>   
+
+    <pre>
+        <code>
+            let nom;
+            nom = "Anna";
+            console.log(typeof(nom))
+        </code>
+    </pre>
+
+    <p>
+        Ja hem dit que JavaScript és de tipatge dinàmic i ara ho comprovarem
+    </p>
+
+    <pre>
+        <code>
+            let nom;
+            nom = "Anna";
+            console.log(typeof(nom));
+            nom = "Oriol"
+            console.log(typeof(nom));
+            nom = 27;
+            console.log(typeof(nom));
+            nom = undefined;
+            console.log(typeof(nom))
+        </code>
+    </pre>
+
+    <p>
+        També podem fer una declaració i una assignació en la mateixa linia
+    </p>
+
+    <pre>
+        <code>
+            let nom = "Anna";
+            console.log(nom)
+        </code>
+    </pre>
+
+    <p>
+        Recordem que la variable nom no és la mateixa que Nom. Mirem aquest exemple... 
+    </p>
+
+    <pre>
+        <code>
+            let nom = "Anna";
+            let Nom = "Oriol";
+            console.log(Nom)
+        </code>
+    </pre>
+
+    <p>
+        Recordem que els noms de les variables han de ser descriptius en la mesura que sigui possible. A mesura que aneu programant escrivireu noms de variables més bons i més descriptius. 
+    </p>
+
+    <p>
+        Hi ha noms de variables que són vàlids...
+    </p>
+
+    <pre>
+        <code>
+            let _nom = "Anna";
+            let $nom = "Oriol";
+            let Nom = "Sílvia";
+            let NOM = "Montserrat";
+            console.log(_nom);
+            console.log($nom);
+            console.log(Nom);
+            console.log(NOM)
+        </code>
+    </pre>
+
+    <p>
+        Podem iniciar el nom de les variables amb una lletra, un _ o un $.
+    </p>
+
+    <p>
+        però en canvi, n'hi ha noms de variables que NO són vàlids perquè comencen amb un nombre, una caràcter no permès, un operador com el signe -, un @ o contenen un espai...
+    </p>
+
+    <pre>
+        <code>
+            let 2nom = "Anna";
+            let ?nom = "Oriol";
+            let -nom = "Oriol";
+            let @nom = "Oriol";
+            let nom cognoms = "Oriol Torrents";
+            console.log(2nom);
+            console.log(?nom);
+            console.log(-nom);
+            console.log(@nom);
+            console.log(nom cognoms);
+        </code>
+    </pre>
+
+    <p>
+        o que NO són vàlids perquè són paraules reservades per un propòsit concret com ara let, var, const o this entre d'altres.
+    </p>
+
+    <pre>
+        <code>
+            let var = "Anna";
+            let this = "Oriol";
+            console.log(var);
+            console.log(this);
+
+        </code>
+    </pre>
+
+    <h2>
+        Constants
+    </h2>
+
+    <p>
+        Podem fer amb les constants amb la diferència que NO podem reassignar el valor d'una constant...
+    </p>
+
+    <pre>
+        <code>
+            const PI = 3.14;
+            console.log(PI)
+        </code>
+    </pre>
+
+    <p>
+        si fem el següent NO ens funcionarà...
+    </p>
+
+    <pre>
+        <code>
+            const PI = 3.14;
+            PI = 3.1416;
+            console.log(PI)
+        </code>
+    </pre>
+</body>
+</html>
