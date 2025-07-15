@@ -143,9 +143,46 @@
         </code>
     </pre>
 
+    <h2>
+        ?? (operador de coalescència nula (nullish coalescing operator)
+    </h2>
+    
     <p>
-
+        L’operador ?? retorna el primer valor que NO sigui null ni undefined. A diferència de ||, que retorna el primer valor "truthy", ?? només salta el valor si és exactament null o undefined. Amb ||, el 0, "", false, etc. es consideren falsos i es salten. Amb ??, només es salten si són null o undefined.
     </p>
+
+    <pre>
+        <code>
+            let valor1 = 0;
+            let valor2 = valor1 || 42;
+            console.log(valor2); // 42 ❌ perquè 0 és "falsy"
+
+            let valor3 = valor1 ?? 42;
+            console.log(valor3); // 0 ✅ perquè 0 no és null ni undefined
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            let nom = null;
+            let nomFinal = nom ?? "Desconegut";
+            console.log(nomFinal); // "Desconegut"
+        </code>
+    </pre>
+    
+    <p>
+        No es pot barrejar ?? amb && o || sense parèntesis:
+    </p>
+
+    <pre>
+        <code>
+            // ❌ Això dona error:
+            true || null ?? "text";
+
+            // ✅ Així sí:
+            (true || null) ?? "text";
+        </code>
+    </pre>
 
     <h2>
         Conclusió
