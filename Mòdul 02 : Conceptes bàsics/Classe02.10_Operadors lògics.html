@@ -24,7 +24,27 @@
     <p>
     Retorna <code>true</code> només si totes les condicions són certes.
     </p>
-      
+
+    <h3>
+        Exemple && amb dues condicions 
+    </h3>
+    
+    <pre>
+        <code>
+            console.log (true && true);
+            console.log (true && false);
+            console.log (false && true);
+            console.log (false && false);
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            let edat = 28;
+            console.log(edat > 18 && edat < 30);
+        </code>
+    </pre>
+
     <pre>
         <code>
             let edat = 18;
@@ -37,6 +57,20 @@
             }
         </code>
     </pre>
+
+    <h3>
+        Exemple && amb més de dues condicions 
+    </h3>
+
+    <p>
+        JavaScript les avalua d'esquerra a dreta, i s'atura tan bon punt ja pot determinar el resultat:
+    </p>
+
+    <pre>
+        <code>
+            true && false && true  // false - Surt false perquè la segona condició ja és false.
+        </code>
+    </pre>
     
     <h2>
         || (OR - o)
@@ -45,7 +79,20 @@
     <p>
     Retorna <code>true</code> si almenys una de les condicions és certa.
     </p>
+
+    <h3>
+        Exemple || amb dues condicions 
+    </h3>
     
+    <pre>
+        <code>
+            console.log (true || true);
+            console.log (true || false);
+            console.log (false || true);
+            console.log (false || false);
+        </code>
+    </pre>
+
     <pre>
         <code>
             let téEntrada = false;
@@ -57,6 +104,20 @@
             console.log("No pots entrar.");
             }
         </code>
+    </pre>
+
+    <h3>
+        Exemple || amb més de dues condicions 
+    </h3>
+
+    <p>
+        JavaScript les avalua d'esquerra a dreta, i s'atura tan bon punt ja pot determinar el resultat:
+    </p>
+
+    <pre>
+        <code>
+            false || true || false // true - Surt true perquè la segona condició és true.
+         </code>
     </pre>
 
     <h2>
