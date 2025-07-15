@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipus de dades a JavaScript</title>
+</head>
+<body>
+    <h1>Tipus de dades a JavaScript</h1>
+
+    <p>
+        En JavaScript, els tipus de dades es divideixen en dades primitives i en objectes. Les <strong>dades primitives</strong> són els valors més bàsics que pot gestionar el llenguatge. No són objectes i no tenen mètodes. Cada dada té un tipus específic que indica com s’ha de tractar. Entendre els tipus de dades és essencial per programar correctament. 
+    </p>
+
+    <h2>
+        Dades de tipus primitiu
+    </h2>
+
+    <p>
+        Els tipus primitius de dades són immutables (no es poden modificar directament) i es guarden per valor. 
+    </p>
+
+    <ol>
+        
+        <li>
+            <h3>
+                Cadena de text | String
+            </h3>
+        </li> 
+    
+        <p>
+            Són cadenes de text. Es poden escriure entre cometes simples, dobles o inclinades (`backticks`). Exemple: <code>"Hola"</code> o <code>'JS'</code>.
+        </p>
+    
+        <pre>
+            <code>
+                let a = "Hola";
+                console.log(a); // "Hola"
+            </code>
+        </pre>
+    
+        <li>
+            <h3>
+                Número | Number
+            </h3>
+        </li>
+    
+        <p>
+            Són números, ja siguin enters o decimals. Exemple: <code>42</code> o <code>3.14</code>. No hi ha diferència entre nombres enters i decimals a JS. NaN (Not a Number) és de tipus number.
+        </p>
+    
+        <pre>
+            <code>
+                let a = 10.3;
+                let b = 3;
+                let resultat = a + b;
+                console.log(resultat); // 13.3
+            </code>
+        </pre>
+    
+        <li>
+            <h3>
+                Booleà | Boolean
+            </h3>
+            
+        </li>
+    
+        <p>
+            Només pot tenir dos valors: <code>true</code> (cert) o <code>false</code> (fals). S'utilitza per fer comprovacions i condicions.
+        </p>
+    
+        <pre>
+            <code>
+                let a = 4;
+                let b = 6;
+                let resultat = a > b;
+                console.log(resultat); // False
+            </code>
+        </pre>
+    
+        <li>
+            <h3>
+                Undefined
+            </h3>
+        </li>
+    
+        <p>
+            És el valor que té una variable quan l’hem declarat però encara no li hem assignat cap valor. Exemple: <code>let x;</code> → x és <code>undefined</code>.
+        </p>
+    
+        <pre>
+            <code>
+                let a;
+                console.log(typeof(a)); // 1
+            </code>
+        </pre>
+    
+        <li>
+            <h3>
+                Symbol
+            </h3>
+        </li>
+        
+        <p>
+            És un tipus especial de dada que crea valors únics. S'utilitza menys sovint i és útil per identificar propietats úniques d'objectes.
+        </p>
+    
+        <li>
+            <h3>
+                Null
+            </h3>
+        </li>
+        
+        <p>
+            Representa una absència de valor intencionada. L’hi donem nosaltres per dir que una variable està buida de manera voluntària: <code>let resultat = null;</code>
+        </p>
+    
+        <li>
+            <h3>
+                BigInt
+            </h3>
+        </li>
+        
+        <p>
+            Permet treballar amb números molt grans, més grans del que permet el tipus <code>Number</code>. S’escriu afegint una “n” al final: <code>123456789012345678901234567890n</code>
+        </p>
+        
+        
+    </ol>
+
+
+    <h3>
+        Funcions per convertir dades
+    </h3>
+    
+    <p>
+        A vegades necessitem canviar el tipus de dada, i per això tenim funcions que ens ajuden:
+    </p>
+
+    <ul>
+        <li><strong>String( )</strong>: converteix qualsevol valor en una cadena de text. Exemple: <code>String(123)</code> retorna <code>"123"</code></li>
+        <li><strong>Number( )</strong>: converteix una cadena o booleà en número. Exemple: <code>Number("5.5")</code> retorna <code>5.5</code></li>
+        <li><strong>parseInt( )</strong>: converteix una cadena a número enter. Exemple: <code>parseInt("42.7")</code> retorna <code>42</code></li>
+        <li><strong>parseFloat( )</strong>: igual que <code>parseInt</code> però manté els decimals. Exemple: <code>parseFloat("42.7")</code> retorna <code>42.7</code></li>
+        <li><strong>Boolean( )</strong>: converteix valors a <code>true</code> o <code>false</code>. Exemple: <code>Boolean(0)</code> retorna <code>false</code>, <code>Boolean("Hola")</code> retorna <code>true</code></li>
+    </ul>
+
+    <h3>
+        Objectes creats a partir de tipus primitius
+    </h3>
+
+    <p>
+        Encara que les dades primitives com <code>String</code>, <code>Number</code> o <code>Boolean</code> no siguin objectes, JavaScript pot crear objectes temporals a partir d’elles per poder utilitzar mètodes útils. Per exemple, podem aplicar <code>toString()</code> per convertir qualsevol valor en una cadena de text.
+    </p>
+
+    <pre>
+        <code>
+            // Exemple amb un número
+            let edat = 25;
+            let edatComText = edat.toString(); // "25"
+
+            // Exemple amb un booleà
+            let actiu = true;
+            console.log(actiu.toString()); // "true"
+        </code>
+    </pre>
+
+    <p>
+        També es poden crear <strong>objectes explícits</strong> amb constructors, però no és gaire recomanable fer-ho amb dades primitives:
+    </p>
+
+    <pre>
+        <code>
+            let text = new String("Hola"); // Objecte String
+            let numero = new Number(123);  // Objecte Number
+            let cert = new Boolean(true);  // Objecte Boolean
+        </code>
+    </pre>
+
+    <p>
+        Aquests objectes es comporten com les seves versions primitives, però ocupen més memòria i poden donar comportaments inesperats. És millor treballar amb valors literals com <code>"Hola"</code>, <code>123</code> o <code>true</code>.
+    </p>
+
+    <h2>
+        Diferència entre .toString() i String()
+    </h2>
+
+    <p>
+        String(valor) és una funció global que converteix qualsevol valor a cadena de text. És ideal quan no estàs segur del tipus que tens (pot ser null, undefined, etc.) perquè no dóna error.
+    </p>
+
+    <p>
+        .toString(valor) és un mètode d'objecte, o sigui, només el pots cridar si el valor ja és un número, booleà, string, array, etc.
+        ⚠️ Dona error si el valor és null o undefined perquè aquests no tenen mètodes.
+    </p>
+
+    <h2>
+        Objectes
+    </h2>
+
+    <p>
+        Els objectes són una estructura clau a JavaScript per emmagatzemar dades relacionades en forma de clau:valor. A diferència dels tipus primitius, els objectes poden contenir molts valors dins d’una sola variable, fins i tot funcions.
+    </p>
+
+    <pre>
+        <code>
+            let persona = {
+                nom: "Anna",
+                edat: 25,
+                saludar: function() {
+                  console.log("Hola!");
+                }
+              };
+              
+        </code>
+    </pre>
+
+    <p>
+        Cada propietat (com nom o edat) es pot accedir amb . o ["clau"], i pots modificar-les o afegir-ne de noves. Els objectes són mutables i es passen per referència, per això quan els canvies dins d’una funció, els canvis es mantenen fora també. Són la base per a arrays, funcions, dates, JSON i gairebé tot a JavaScript.
+    </p>
+
+    <h2>
+        Conclusió
+    </h2>
+
+    <p>
+        Els tipus de dades a JavaScript es divideixen en primitius i objectes, i cadascun es comporta de manera diferent. Els primitius són simples, immutables i es comparen pel valor; en canvi, els objectes són complexos, mutables i es comparen per referència. Conèixer aquestes diferències ens ajuda a evitar errors habituals en comparacions, conversions i manipulació de dades. A més, funcions com String(), Number() o Boolean() ens permeten transformar valors de manera segura i controlar millor el comportament del codi.
+    </p>
+    
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booleans a JavaScript</title>
+</head>
+<body>
+    <h1>Booleans a JavaScript</h1>
+
+    <p>
+        Els valors <strong>booleans</strong> són un dels tipus de dades més simples però potents de JavaScript. Només poden tenir dos valors: <strong>true</strong> (cert) o <strong>false</strong> (fals). S’utilitzen per controlar el flux dels programes, especialment amb condicions i bucles.
+    </p>
+
+    <h2>
+    Declarar un valor boolean
+    </h2>
+    
+    <pre>
+        <code>
+            let ésMajorEdat = true;
+            let téCarnet = false;
+        </code>
+    </pre>
+
+    <p>
+        No és el mateix la paraula reservada false com a booleà que la cadena de text "false".
+    </p>
+
+    <h2>
+    Expressions booleanes
+    </h2>
+    
+    <p>
+        Les comparacions com <code>==</code>, <code>===</code>, <code>&gt;</code>, <code>&lt;</code>, etc., sempre retornen un valor boolean.
+    </p>
+    <pre>
+        <code>
+            let edat = 18;
+            let ésMajor = edat >= 18; // true
+            console.log(ésMajor); // mostra true
+        </code>
+    </pre>
+
+    <p>
+        En JavaScript, un valor boolean sovint s’utilitza com una “bandera” per indicar si una condició s’ha complert o si un estat està actiu o inactiu. Aquesta tècnica és molt útil per controlar el flux del programa de manera clara i eficient.
+    </p>
+
+    <p>
+        Una bandera (flag) és una variable que guarda true o false per indicar si una acció s’ha realitzat, si un error ha passat, si una sessió està activa, etc.
+    </p>
+
+    <p>
+        Mirem quatre exemples
+    </p>
+
+    <pre>
+        <code>
+            let notificacions_actives = true;
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            let errorDetectat = false;
+
+            // Simulem una comprovació
+            
+            let edat = 15;
+            
+            if (edat < 18) {
+            errorDetectat = true;
+            }
+
+            if (errorDetectat) {
+            console.log("Error: l'usuari no és major d'edat.");
+            }
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            let sessioIniciada = false;
+
+            function iniciarSessio(usuari, contrasenya) {
+                if (usuari === "admin" && contrasenya === "1234") {
+                    sessioIniciada = true;
+                }
+            }
+
+            iniciarSessio("admin", "1234");
+
+            if (sessioIniciada) {
+            console.log("Benvingut, admin!");
+            }            
+        </code>
+    </pre>
+
+    <p>
+        En aquest últim codi li podem posar dos prompts per demanar l'usuari i la contrasenya
+    </p>
+
+    <pre>
+        <code>
+            // Credencials correctes (simulades)
+            const USUARI_CORRECTE = "admin";
+            const CONTRASENYA_CORRECTA = "1234";
+
+            // Demanem l'usuari i la contrasenya
+            let usuari = prompt("Escriu el teu nom d'usuari:");
+            let contrasenya = prompt("Escriu la teva contrasenya:");
+
+            // Bandera per saber si la sessió s'ha iniciat
+            let sessioIniciada = false;
+
+            // Comprovem si les credencials coincideixen
+            if (usuari === USUARI_CORRECTE && contrasenya === CONTRASENYA_CORRECTA) {
+            sessioIniciada = true;
+            }
+
+            // Mostrem el resultat
+            if (sessioIniciada) {
+            console.log("✅ Benvingut, " + usuari + "! Has iniciat sessió correctament.");
+            } else {
+            console.log("❌ Error: usuari o contrasenya incorrectes.");
+            }
+        </code>
+    </pre>
+    
+    <h2>
+        Operadors lògics
+    </h2>
+    
+    <ul>
+        <li><code>&&</code> (AND): retorna <code>true</code> si ambdues condicions són certes</li>
+        <li><code>||</code> (OR): retorna <code>true</code> si almenys una condició és certa</li>
+        <li><code>!</code> (NOT): inverteix el valor boolean</li>
+    </ul>
+
+    <pre>
+        <code>
+            let téCarnet = true;
+            let téMultes = false;
+
+            let potConduir = téCarnet && !téMultes; // true && true → true
+            console.log(potConduir); // mostra true
+        </code>
+    </pre>
+
+    <h2>
+        Truthiness i Falsiness
+    </h2>
+    
+    <p>
+        En JavaScript, alguns valors no booleans es poden avaluar com <code>true</code> o <code>false</code> en contextos condicionals.
+    </p>
+    
+    <ul>
+        <li><strong>Falsos:</strong> <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>, <code>false</code></li>
+        <li><strong>Certs:</strong> Tots els altres valors</li>
+    </ul>
+
+    <pre>
+        <code>
+            if ("") {
+            console.log("Això no es mostrarà");
+            } else {
+            console.log("És fals!");
+            }
+        </code>
+    </pre>
+
+    <h2>
+        Conclusió
+    </h2>
+    
+    <p>
+        Els booleans són essencials per prendre decisions en el codi. Saber com funcionen els valors veritables i falsos, i com utilitzar operadors lògics, és fonamental per escriure condicions eficients i llegibles.
+    </p>
+
+</body>
+</html>

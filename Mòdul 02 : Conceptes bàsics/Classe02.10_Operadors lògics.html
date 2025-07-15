@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadors lògics a JavaScript</title>
+</head>
+<body>
+    <h1>Operadors lògics a JavaScript</h1>
+
+    <h2>
+        Què són els operadors lògics?
+    </h2>
+
+    <p>
+        Els operadors lògics serveixen per combinar condicions booleans. Ens ajuden a prendre decisions en el codi segons si certes condicions són certes o falses. Els més utilitzats són:
+    </p>
+    
+    <h2>
+        && (AND - i)
+    </h2>
+      
+    <p>
+    Retorna <code>true</code> només si totes les condicions són certes.
+    </p>
+      
+    <pre>
+        <code>
+            let edat = 18;
+            let téCarnet = true;
+            
+            if (edat >= 18 && téCarnet) {
+            console.log("Pots conduir.");
+            } else {
+            console.log("No pots conduir.");
+            }
+        </code>
+    </pre>
+    
+    <h2>
+        || (OR - o)
+    </h2>
+    
+    <p>
+    Retorna <code>true</code> si almenys una de les condicions és certa.
+    </p>
+    
+    <pre>
+        <code>
+            let téEntrada = false;
+            let ésVIP = true;
+            
+            if (téEntrada || ésVIP) {
+            console.log("Pots entrar a l'esdeveniment.");
+            } else {
+            console.log("No pots entrar.");
+            }
+        </code>
+    </pre>
+
+    <h2>
+        ! (NOT - no)
+    </h2>
+    
+    <p>
+    Inverteix el valor booleà: si era <code>true</code>, es torna <code>false</code> i viceversa.
+    </p>
+    
+    <pre>
+        <code>
+            let estàPlovent = false; // Aquí estàs definint una variable que indica si plou o no. Ara mateix no plou (false).
+                        
+            if (!estàPlovent) { 
+            console.log("Pots sortir sense paraigua.");
+            
+            // Amb !estàPlovent estàs dient: "si no plou". Com que estàPlovent és false, el ! ho converteix en true, així que el codi dins el if s'executa. Aquest missatge "Pots sortir sense paraigua." surt perquè realment no plou.       
+
+            } else {
+            console.log("Agafa un paraigua!");
+            }
+        </code>
+    </pre>
+
+    <p>
+
+    </p>
+
+    <h2>
+        Conclusió
+    </h2>
+    
+    <p>
+        Els operadors lògics són fonamentals per crear condicions complexes en el nostre codi. Amb <code>&&</code>, <code>||</code> i <code>!</code> podem controlar millor el comportament del nostre programa.
+    </p>
+
+</body>
+</html>
