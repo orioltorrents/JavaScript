@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadors de comparació a JavaScript</title>
+</head>
+<body>
+    <h1>Operadors de comparació a JavaScript</h1>
+
+    <h2>
+        Què són els operadors de comparació?
+    </h2>
+
+    <p>
+        Els operadors de comparació ens permeten comparar dos valors i obtenir com a resultat un valor booleà: <code>true</code> o <code>false</code>. Són molt útils per fer condicions amb <code>if</code>, <code>while</code> o altres estructures de control.
+    </p>
+
+    <h2>
+    Principals operadors de comparació
+    </h2>
+
+    <ul>
+        <li><code>==</code> Igualtat (sense tenir en compte el tipus)</li>
+        <li><code>===</code> Igualtat estricta (compara també el tipus)</li>
+        <li><code>!=</code> Diferent (sense tenir en compte el tipus)</li>
+        <li><code>!==</code> Diferent estrictament</li>
+        <li><code>&gt;</code> Major que</li>
+        <li><code>&gt;=</code> Major o igual que</li>
+        <li><code>&lt;</code> Menor que</li>
+        <li><code>&lt;=</code> Menor o igual que</li>
+    </ul>
+
+    <h2>
+        Exemples pràctics amb Numbers
+    </h2>
+    
+    <pre>
+        <code>
+            // Comparació senzilla
+            console.log(5 == '5');      // true (compara el valor, no el tipus)
+            console.log(5 === '5');     // false (tipus diferents)
+            console.log(10 > 7);        // true
+            console.log(3 <= 2);        // false
+            console.log(true == 1);     // true (true es converteix en 1)
+            console.log(false === 0);   // false (tipus diferents)
+        </code>
+    </pre>
+
+    <h2>
+        Exemples pràctics amb variables que porten Numbers
+    </h2>
+    
+    <pre>
+        <code>
+            let edad = 15;
+            let resultat = edad >= 18;
+            console.log (resultat)
+        </code>
+    </pre>
+
+    <h2>
+        Exemples pràctics amb Strings
+    </h2>
+
+    <p> 
+        En JavaScript, també podem comparar cadenes de text utilitzant operadors com <code>&lt;</code> i <code>&gt;</code>. Aquesta comparació segueix l’ordre lexicogràfic, és a dir, l’ordre alfabètic segons el valor Unicode dels caràcters. Per exemple, <code>"gat" &lt; "gos"</code> retorna <code>true</code> perquè la lletra "a" ve abans que la "o". Aquesta regla és útil per ordenar llistes de paraules o comprovar quin text va primer alfabèticament. </p>
+    </p>
+
+    <pre>
+        <code>
+            const paraula1 = prompt("Escriu una paraula:");
+            const paraula2 = prompt("Escriu una altra paraula:");
+        
+            console.log("Resultat de la comparació:");
+            console.log(`"${paraula1}" < "${paraula2}" →`, paraula1 < paraula2);
+            console.log(`"${paraula1}" > "${paraula2}" →`, paraula1 > paraula2);
+            console.log(`"${paraula1}" === "${paraula2}" →`, paraula1 === paraula2);
+        </code>
+    </pre>
+
+    <p>
+        En JavaScript (i en molts llenguatges), les lletres majúscules tenen un valor Unicode més baix que les minúscules.
+        Això vol dir que, sorprenentment:
+    </p>
+
+    <pre>
+        <code>
+            "A" < "a" // → true
+            "Animal" < "animal" → true
+            "animal" < "animal" → false
+        </code>
+    </pre>    
+    
+    <h2>
+        Consell
+    </h2>
+    
+    <p>
+        En general, es recomana utilitzar sempre <code>===</code> i <code>!==</code> per evitar errors deguts a la coacció de tipus automàtica. Així t’assegures que no només el valor, sinó també el tipus, sigui el que esperes.
+    </p>
+
+</body>
+</html>

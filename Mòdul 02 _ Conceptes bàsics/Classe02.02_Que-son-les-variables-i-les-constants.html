@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables i constants</title>
+</head>
+<body>
+    <h1>
+        Variables i constants
+    </h1>
+
+    <p>
+        Quan executem un programa podem guardar informació útil en la memòria de la computadora, aquesta informació és eliminada quan ja no està en un ús o es tanca el programa. 
+    </p>
+
+    <p>
+        La informació es guarda en espais de la memòria virtual. Aquests espais de memòria poden tenir noms, i se'n diu <strong>variables</strong> o <strong>constants</strong>, depenent de si la informació que hi guardem pot canviar o no.
+    </p>
+
+    <h2>
+        Variables
+    </h2>
+
+    <p>
+        Una <strong>variable</strong> és com una capseta on podem guardar un valor, i més endavant canviar-lo si volem.
+    </p>
+    <p>
+        En JavaScript, per declarar una variable utilitzem la paraula <code>let</code> o <code>var</code>. Utilitzarem <code>let</code> i més endavant ja us ensenyaré la diferència entre <code>let</code> i <code>var</code>.
+    </p>
+
+    <pre>
+        <code>
+            // Declarem una variable nom
+            let nom; 
+
+            // Assignem el valor "Anna" a la variable nom
+            nom = "Anna";
+
+            // Més tard podem canviar el valor
+            nom = "Joan";
+        </code>
+    </pre>
+
+    <h2>
+        Constants
+    </h2>
+    
+    <p>
+        Una <strong>constant</strong> també guarda informació, però el seu valor no es pot canviar un cop s'ha assignat.
+    </p>
+    <p>
+        En JavaScript, fem servir <code>const</code> per crear una constant.
+    </p>
+
+    <pre>
+        <code>
+            // Declarem una constant
+            const pi = 3.14;
+
+            // Això donaria error perquè no podem canviar una constant
+            // pi = 3.1416; ❌
+        </code>
+    </pre>
+
+    <h2>Bones pràctiques</h2>
+    <ul>
+        <li>Utilitza <code>let</code> quan el valor pot canviar.</li>
+        <li>Utilitza <code>const</code> quan el valor ha de ser fix.</li>
+        <li>Evita usar <code>var</code>, ja que pot donar problemes en programes grans.</li>
+        <li>Els noms de les variables han de ser clars, sense espais i no poden començar amb números.</li>
+    </ul>  
+</body>
+</html>
