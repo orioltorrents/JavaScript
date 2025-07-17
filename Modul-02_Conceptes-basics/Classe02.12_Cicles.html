@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cicles a JavaScript</title>
+</head>
+<body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
+    <h1>Cicles a JavaScript</h1>
+
+    <p>
+        En programació, sovint ens trobem amb situacions on una mateixa acció s’ha de repetir moltes vegades: mostrar una llista d’elements, sumar números d’un array, comptar de 1 a 100, etc. En lloc d’escriure el mateix codi una i altra vegada, fem servir <strong>cicles</strong> (o bucles) per automatitzar aquestes repeticions.
+    </p>
+
+    <p>
+        Els cicles ens permeten escriure codi més eficient, més curt i més fàcil de mantenir. Són una eina fonamental per automatitzar tasques repetitives dins dels nostres programes.
+    </p>
+
+    <p>
+        Una de les habilitats clau d’un programador és <strong>detectar patrons</strong> dins de les dades o les accions que es volen executar. Quan identifiquem que una acció es repeteix (amb o sense petites variacions), és molt probable que puguem utilitzar un cicle per resoldre el problema.
+    </p>
+
+    <p>
+        Per exemple, si estem creant una aplicació que ha de revisar totes les respostes d’un formulari o calcular el total d'una sèrie de valors, un bon programador pensarà immediatament: <strong>"Aquí hi ha un patró repetitiu. Puc fer servir un bucle."</strong>
+    </p>
+
+    <p>
+        A JavaScript existeixen els següents cicles:
+    </p>
+
+    <ol>
+        <h2>
+            <li>El bucle <code>for</code></li>
+        </h2>
+           
+        <p>
+            El bucle <code>for</code> és ideal quan sabem quantes vegades volem repetir una acció. Es compon de tres parts clau: inicialització, condició i actualització.
+        </p>
+
+        <pre>
+            <code>
+                for (intrucció inicial ; condició ; instrucció després de cada iteració)
+            </code>
+        </pre>
+
+        <ol>
+            <li>
+                <strong>Inicialització:</strong> es declara (o inicialitza) una variable que control·larà el nombre d’iteracions.
+                <br><code>let i = 0</code>
+            </li>
+            <li>
+                <strong>Condició:</strong> mentre aquesta condició sigui certa, el cicle continuarà.
+                <br><code>i &lt; 5</code> (per exemple, quan i sigui 5, el bucle s'atura)
+            </li>
+            <li>
+                <strong>Actualització:</strong> modifica el valor de la variable després de cada iteració.
+                <br><code>i++</code> (incrementa i de 1 en 1)
+            </li>
+        </ol>
+        
+        <h3>
+            Exemple complet
+        </h3>
+
+        <pre>
+            <code>
+            // Mostra els números del 0 al 4
+            for (let i = 0; i < 5; i++) {
+                console.log("Valor de i:", i);
+            }
+            </code>
+        </pre>
+
+        <h3>
+            Exercicis pràctics
+        </h3>
+
+        <!--- Exercici 1 --> 
+        
+        <p>
+            Escriu un bucle que mostri tots els números parells del 2 al 10.
+        </p>
+
+        <button onclick="mostrarSolucio('solucio6')">
+            Mostra / Amaga solució
+        </button>
+    
+        <pre id="solucio6" style="display:none;">
+            <code>
+                let num1 = Number(prompt("Introdueix el primer número"));
+                let num2 = Number(prompt("Introdueix el segon número"));
+                let operacio = prompt("Introdueix l’operació (+, -, *, /)");
+
+                let resultat;
+
+                if (operacio === "+") {
+                resultat = num1 + num2;
+                } else if (operacio === "-") {
+                resultat = num1 - num2;
+                } else if (operacio === "*") {
+                resultat = num1 * num2;
+                } else if (operacio === "/") {
+                if (num2 === 0) {
+                    resultat = "No es pot dividir per zero";
+                } else {
+                    resultat = num1 / num2;
+                }
+                } else {
+                resultat = "Operació no vàlida";
+                }
+
+                console.log("Resultat:", resultat);
+            </code>
+        </pre>    
+        
+        <!--- Exercici 2 -->
+
+        <p>
+            Escriu un bucle <code>for</code> que mostri els números del 10 al 1 en ordre descendent.
+        </p>
+        
+        <button onclick="mostrarSolucio('solucio6')">
+            Mostra / Amaga solució
+        </button>
+        
+        <pre id="solucio6" style="display:none;">
+            <code>
+                for (let i = 10: i >= 1; i--) {
+                    console.log(i);
+                }
+            </code>
+        </pre>
+        
+        <!--- Exercici 3 -->
+
+        <p>
+            Escriu un bucle <code>for</code> que sumi els nombres de l’1 al 5 i mostri el resultat final.
+        </p>
+
+        <button onclick="mostrarSolucio('solucio8')">
+            Mostra / Amaga solució
+        </button>
+
+        <pre id="solucio8" style="display:none;">
+            <code>
+                let suma = 0;
+                for (let i = 1; i <= 5; i++) {
+                    suma += i;
+                }
+                console.log("Suma total:", suma);
+            </code>
+        </pre>
+
+        <!--- Exercici 4 -->
+
+        <p>
+            Escriu un bucle <code>for</code> que mostri els nombres senars entre 1 i 9.
+        </p>
+
+        <button onclick="mostrarSolucio('solucio9')">
+            Mostra / Amaga solució
+        </button>
+
+        <pre id="solucio9" style="display:none;">
+            <code>
+                for (let i = 1; i <= 9; i += 2) {
+                    console.log(i);
+                }
+            </code>
+        </pre>
+
+        <!--- Exercici 5 -->
+
+        <p>
+            Escriu un bucle <code>for</code> que mostri per consola cada nom dins d’aquest array:
+            <code>["Anna", "Joan", "Marta", "Pau"]</code>
+        </p>
+
+        <button onclick="mostrarSolucio('solucio10')">
+            Mostra / Amaga solució
+        </button>
+
+        <pre id="solucio10" style="display:none;">
+            <code>
+            const noms = ["Anna", "Joan", "Marta", "Pau"];
+            for (let i = 0; i < noms.length; i++) {
+                console.log(noms[i]);
+            }
+            </code>
+        </pre>
+
+        <h2>
+            <li>while</li>
+        </h2>
+        
+        <p>
+            El bucle <code>while</code> repeteix una acció mentre es compleixi una condició. És útil quan no sabem exactament quantes vegades s’haurà de repetir una acció, però volem continuar fins que alguna cosa canviï.
+        </p>
+
+        <h3>
+            Sintaxi
+        </h3>
+
+        <pre>
+            <code>
+            while (condició) {
+                // codi a executar
+            }
+            </code>
+        </pre>
+
+        <h3>Com funciona?</h3>
+        <ol>
+            <li><strong>Condició:</strong> Abans de començar, JavaScript comprova si la condició és certa (<code>true</code>).</li>
+            <li>Si ho és, executa el bloc de codi.</li>
+            <li>Un cop executat, torna a comprovar la condició.</li>
+            <li>Quan la condició ja no és certa, surt del bucle.</li>
+        </ol>
+        
+        <h3>Exemple bàsic</h3>
+            <pre>
+                <code>
+            // Mostra els números del 1 al 5
+            let i = 1;
+            while (i <= 5) {
+                console.log("Valor de i:", i);
+                i++;
+            }
+                </code>
+            </pre>
+
+        <h3>Exercicis pràctics</h3>
+        
+        <h3>
+            1. Comptar de 1 a 5
+        </h3>
+        
+        <p>
+            Fes un bucle <code>while</code> que mostri els números del 1 al 5 per consola.
+        </p>
+        
+        <button onclick="mostrarSolucio('solucio11')">
+            Mostra / Amaga solució
+        </button>
+        
+        <pre id="solucio11" style="display:none">
+            <code>
+            let i = 1;
+            while (i <= 5) {
+                console.log(i);
+                i++;
+            }
+            </code>
+        </pre>
+
+        <!-- Exercici 2 -->
+        
+        <h3>
+            2. Números parells de 2 a 10
+        </h3>
+        
+        <p>
+            Fes un bucle <code>while</code> que escrigui només els nombres parells del 2 al 10.
+        </p>
+        
+        <button onclick="mostrarSolucio('solucio12')">
+            Mostra / Amaga solució
+        </button>
+        
+        <pre id="solucio12" style="display:none">
+            <code>
+            let i = 2;
+            while (i <= 10) {
+                console.log(i);
+                i += 2;
+            }
+            </code>
+        </pre>
+
+        <!-- Exercici 3 -->
+        
+        <h3>
+            3. Contar enrere des de 7 fins a 1
+        </h3>
+        
+        <p>
+            Fes un bucle <code>while</code> que comenci a 7 i resti de 1 en 1 fins arribar a 1.
+        </p>
+        
+        <button onclick="mostrarSolucio('solucio13')">
+            Mostra / Amaga solució
+        </button>
+        
+        <pre id="solucio13" style="display:none">
+            <code>
+            let i = 7;
+            while (i >= 1) {
+                console.log(i);
+                i--;
+            }
+            </code>
+        </pre>
+
+        <!-- Exercici 4 -->
+        
+        <h3>
+            4. Demanar una paraula fins que sigui "fi"
+        </h3>
+        
+        <p>
+            Fes servir <code>prompt()</code> per demanar una paraula. El bucle ha d'acabar quan l'usuari escrigui exactament "fi".
+        </p>
+        
+        <button onclick="mostrarSolucio('solucio14')">
+            Mostra / Amaga solució
+        </button>
+        
+        <pre id="solucio14" style="display:none">
+            <code>
+            let paraula = "";
+            while (paraula !== "fi") {
+                paraula = prompt("Escriu una paraula ('fi' per sortir):");
+            }
+            </code>
+        </pre>
+    
+        <!-- Exercici 5 -->
+        
+        <h3>
+            5. Demanar números fins que sigui 0 i fes servir <code>prompt()</code> per demanar números
+        </h3>
+        
+        <button onclick="mostrarSolucio('solucio15')">
+            Mostra / Amaga solució
+        </button>
+        
+        <pre id="solucio15" style="display:none">
+            <code>
+                let numero = "";
+                while (numero !== 0) {
+                    numero = prompt("Escriu un numero ('0' per sortir):");
+                }
+            </code>
+        </pre>
+            
+        <h2>
+            <li>do... while</li>
+        </h2>
+        
+        <p>
+            El bucle <code>do...while</code> és molt semblant al <code>while</code>, però amb una diferència important: **el codi dins del bucle s'executa almenys una vegada**, encara que la condició sigui falsa des del principi. Això és útil quan volem que l'acció es faci com a mínim un cop abans de comprovar si s'ha de repetir.
+        </p>
+
+        <h3>
+            Sintaxi
+        </h3>
+
+            <pre>
+                <code>
+                    do {
+                        // instruccions a repetir
+                    } while (condició);
+                </code>
+            </pre>  
+            
+        
+        <h3>
+            Com funciona?
+        </h3>    
+        
+        <ol>
+            <li>Primer s’executa el bloc de codi dins del <code>do</code>.</li>
+            <li>Després es comprova la <code>condició</code>.</li>
+            <li>Si és certa, es torna a executar el codi. Si és falsa, el bucle s’atura.</li>
+            <li>Això assegura que el codi s’executi almenys una vegada, fins i tot si la condició no es compleix inicialment.</li>
+        </ol>
+
+        <h3>
+            Exemple bàsic
+        </h3>
+            
+        <pre>
+            <code>
+                let i = 1;
+                do {
+                    console.log("Valor de i:", i);
+                    i++;
+                } while (i <= 5);
+            </code>
+        </pre>
+
+        <h3>
+            Exercicis pràctics
+        </h3>
+
+        <p>
+            A continuació tens alguns exercicis per practicar el bucle <code>do...while</code>, amb solucions ocultables perquè puguis pensar abans de mirar-les. Els exercicis van de més fàcil a més avançat.
+        </p>
+        
+        <!-- Exercici 1 -->
+        
+        <h3>
+            1. Mostrar números del 1 al 5
+        </h3>
+        
+        <button onclick="mostrarSolucio('solucio16')">
+            Mostra / Amaga solució
+        </button>
+        
+        <pre id="solucio16" style="display:none">
+            <code>
+                let i = 1;
+                do {
+                    console.log(i);
+                    i++;
+                } while (i <= 5);
+            </code>
+        </pre>   
+
+        <!-- Exercici 2 -->
+
+        <h3>
+            2. Mostrar els parells de 2 a 10
+        </h3>
+        
+        <p>
+            Fes un bucle <code>do...while</code> que mostri només els nombres parells del 2 al 10.
+        </p>
+
+        <button onclick="mostrarSolucio('solucio17')">
+            Mostra / Amaga solució
+        </button>
+        
+        <pre id="solucio17" style="display:none">
+            <code>
+                let i = 2;
+                do {
+                    console.log(i);
+                    i += 2;
+                } while (i <= 10);
+            </code>
+        </pre>    
+        
+        <h3>
+            3. Escriure paraules fins que l’usuari escrigui "sortir"
+        </h3>
+        
+        <p>
+            Demana a l’usuari que escrigui una paraula i repeteix mentre no escrigui <code>sortir</code>.
+        </p>
+        
+        <button onclick="mostrarSolucio('solucio18')">
+            Mostra / Amaga solució
+        </button>
+
+        <pre id="solucio18" style="display:none">
+            <code>
+                let entrada;
+                do {
+                    entrada = prompt("Escriu una paraula (escriu 'sortir' per acabar):");
+                } while (entrada !== "sortir");
+            </code>
+        </pre>
+        
+        <h2>
+            Conclusions
+        </h2>
+        
+        <p>
+            Els cicles ens ajuden a repetir accions sense duplicar codi, però és important saber **quin bucle triar segons el cas**:
+        </p>
+
+        <ul>
+            <li><strong>for:</strong> Ideal quan sabem <strong>quantes vegades</strong> volem repetir una acció (per exemple, comptar del 1 al 10 o recórrer un array).</li>
+            <li><strong>while:</strong> El fem servir quan <strong>no sabem exactament quantes vegades</strong> cal repetir, però <strong>tenim una condició clara</strong> que ha de complir-se per continuar.</li>
+            <li><strong>do...while:</strong> S’utilitza quan volem que el codi <strong>s’executi com a mínim una vegada</strong>, encara que la condició no sigui certa al principi (per exemple, demanar dades a l’usuari amb <code>prompt()</code>).</li>
+        </ul>
+
+        <h3>Errors comuns a evitar</h3>
+        <ul>
+            <li><strong>Bucle infinit:</strong> Si oblides incrementar o modificar la variable de control, el bucle pot no acabar mai. ⚠️</li>
+            <li><strong>Condicions incorrectes:</strong> Revisa bé els signes com <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code>... Un petit error pot fer que el bucle no entri o no acabi.</li>
+            <li><strong>No inicialitzar la variable:</strong> En els <code>while</code> i <code>do...while</code>, assegura’t d’inicialitzar la variable fora del bucle.</li>
+            <li><strong>No modificar la variable:</strong> Si la variable de control no canvia dins el bucle, la condició mai canviarà.</li>
+        </ul>
+
+        <p>
+            💡 Un bon programador no només sap fer servir bucles, sinó que sap <strong>detectar patrons repetitius</strong> i escollir l’eina adequada per fer el codi més net, eficient i segur.
+        </p>
+
+        <script>
+        function mostrarSolucio(id) {
+        const bloc = document.getElementById(id);
+        bloc.style.display = bloc.style.display === "none" ? "block" : "none";
+        }
+        </script>
+        
+        <p>
+            <a href="../index.html">Anar a l'índex</a>
+        </p>
+</body>
+</html>

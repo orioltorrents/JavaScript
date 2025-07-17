@@ -7,6 +7,10 @@
     <title>Operadors lògics a JavaScript</title>
 </head>
 <body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
     <h1>Operadors lògics a JavaScript</h1>
 
     <h2>
@@ -14,66 +18,71 @@
     </h2>
 
     <p>
-        Els operadors lògics serveixen per combinar condicions booleans. Ens ajuden a prendre decisions en el codi segons si certes condicions són certes o falses. Els més utilitzats són:
+        Els operadors lògics serveixen per avaluar multiples valors o expressions pel seu valor o representació booleana. En la majoria de llenguatges produeixen resultats booleans però en JavaScript retornen qualsevol tipus de valor: booleà, string, objectes, etc. 
     </p>
-    
-    <h2>
-        && (AND - i)
-    </h2>
-      
-    <p>
-    Retorna <code>true</code> només si totes les condicions són certes.
-    </p>
-
-    <h3>
-        Exemple && amb dues condicions 
-    </h3>
-    
-    <pre>
-        <code>
-            console.log (true && true);
-            console.log (true && false);
-            console.log (false && true);
-            console.log (false && false);
-        </code>
-    </pre>
-
-    <pre>
-        <code>
-            let edat = 28;
-            console.log(edat > 18 && edat < 30);
-        </code>
-    </pre>
-
-    <pre>
-        <code>
-            let edat = 18;
-            let téCarnet = true;
-            
-            if (edat >= 18 && téCarnet) {
-            console.log("Pots conduir.");
-            } else {
-            console.log("No pots conduir.");
-            }
-        </code>
-    </pre>
-
-    <h3>
-        Exemple && amb més de dues condicions 
-    </h3>
 
     <p>
-        JavaScript les avalua d'esquerra a dreta, i s'atura tan bon punt ja pot determinar el resultat:
+        A JavaScript existeixen quatre operadors lògics:
     </p>
 
-    <pre>
-        <code>
-            true && false && true  // false - Surt false perquè la segona condició ja és false.
-        </code>
-    </pre>
+    <ol>
+        <h2>
+            <li>&& (AND - i)</li>
+        </h2>
+           
+        <p>
+        Retorna <code>true</code> només si totes les condicions són certes.
+        </p>
+
+        <h3>
+            Exemples de && amb dues condicions 
+        </h3>
+        
+        <pre>
+            <code>
+                console.log (true && true);
+                console.log (true && false);
+                console.log (false && true);
+                console.log (false && false);
+            </code>
+        </pre>
+
+        <pre>
+            <code>
+                let edat = 28;
+                console.log(edat > 18 && edat < 30);
+            </code>
+        </pre>
+
+        <pre>
+            <code>
+                let edat = 18;
+                let téCarnet = true;
+                
+                if (edat >= 18 && téCarnet) {
+                console.log("Pots conduir.");
+                } else {
+                console.log("No pots conduir.");
+                }
+            </code>
+        </pre>
+
+        <h3>
+            Exemple && amb més de dues condicions 
+        </h3>
+
+        <p>
+            JavaScript les avalua d'esquerra a dreta, i s'atura tan bon punt ja pot determinar el resultat:
+        </p>
+
+        <pre>
+            <code>
+                true && false && true  // false - Surt false perquè la segona condició ja és false.
+            </code>
+        </pre>
     
     <h2>
-        || (OR - o)
+        <li>|| (OR - o)</li>
     </h2>
     
     <p>
@@ -121,7 +130,7 @@
     </pre>
 
     <h2>
-        ! (NOT - no)
+        <li>! (NOT - no)</li>
     </h2>
     
     <p>
@@ -144,7 +153,7 @@
     </pre>
 
     <h2>
-        ?? (operador de coalescència nula (nullish coalescing operator)
+        <li>?? (operador de coalescència nula (nullish coalescing operator)</li>
     </h2>
     
     <p>
@@ -183,7 +192,8 @@
             (true || null) ?? "text";
         </code>
     </pre>
-
+    </ol>
+    
     <h2>
         Conclusió
     </h2>
@@ -191,6 +201,8 @@
     <p>
         Els operadors lògics són fonamentals per crear condicions complexes en el nostre codi. Amb <code>&&</code>, <code>||</code> i <code>!</code> podem controlar millor el comportament del nostre programa.
     </p>
-
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
 </body>
 </html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicions a JavaScript</title>
+</head>
+<body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
+    <h1>Condicions a JavaScript</h1>
+
+    <h2>
+        if
+    </h2>
+
+    <p>
+        En programació, necessitem moltes vegades condicionar que un bloc de codi s'executi si una condició s'ha complert. Per exemple, si un usuari ha iniciat sessió o si un usuari és major d'edat o no, s'executaran uns codis o uns altres. Per aquestes classes d'avaluacionsm tenim els condicionals. Una condició a JS es declara utilitzant la paraula reservada "if" seguida d'uns parèntesis on hi ha una expressió booleana. Si aquesta expressió és certa, s'executarà el codi que hi ha dins les claus.
+    </p>
+    
+    <pre>
+        <code>
+            if (condició) {
+                // codi a executar si la condició és certa
+            }
+        </code>
+    </pre>
+
+    <p>
+        Per posar el codi a executar si la condició és certa, es recomana posar una tabulació.
+    </p>
+
+    <p>
+        Si l'expressió boolaena és falsa, no s'executarà el codi que hi ha dins les claus. 
+    </p>
+    
+    <p>
+        Per exemple, si volem comprovar si un usuari és major d'edat, podem fer això:
+    </p>
+    
+    <pre>
+        <code>
+            let edat = 18;
+            if (edat >= 18) {
+                console.log("L'usuari és major d'edat");
+            }
+        </code>
+    </pre>
+    
+    </p>
+    
+    <p>
+        Si la condició no és certa, podem afegir una altra clàusula amb la paraula reservada "else" per executar un altre codi.
+    </p>
+    
+    <pre>
+        <code>
+            if (condició) {
+                // codi a executar si la condició és certa
+            } else {
+                // codi a executar si la condició no és certa
+            }
+        </code>
+    </pre>
+
+    <p>
+        Per exemple, si volem comprovar si un usuari és major d'edat, podem fer això:
+    </p>
+    
+    <pre>
+        <code>
+            let edat = 17;
+            if (edat >= 18) {
+                console.log("L'usuari és major d'edat");
+            } else {
+                console.log("L'usuari no és major d'edat");
+            }
+        </code>
+    </pre>
+    
+    <p>
+        També podem afegir més condicions amb la paraula reservada "else if" per executar un altre codi si una altra condició és certa.
+    </p>
+    
+    <pre>
+        <code>
+            if (condició1) {
+                // codi a executar si la condició1 és certa
+            } else if (condició2) {
+                // codi a executar si la condició2 és certa
+            } else {
+                // codi a executar si cap condició és certa
+            }
+        </code>
+    </pre>
+    
+    <p>
+        Podem crear un exemple on hi ha tres condicions:
+    </p>
+    
+    <pre>
+        <code>
+            let edat = 17;
+            if (edat >= 18) {
+                console.log("L'usuari és major d'edat");
+            } else if ( edat >= 16) {
+                console.log("L'usuari té entre 16 i 17 anys");
+            } else {
+                console.log("L'usuari té menys de 16 anys");
+            }
+        </code>
+    </pre>
+    
+    <pre>
+        <code>
+            let nota = Number(prompt("Quina nota has tret?"));
+
+            if (nota >= 9) {
+            console.log("Excel·lent!");
+            } else if (nota >= 7) {
+            console.log("Notable.");
+            } else if (nota >= 5) {
+            console.log("Aprovat.");
+            } else if (nota >= 3) {
+            console.log("Insuficient.");
+            } else if (nota >= 0) {
+            console.log("Molt deficient.");
+            } else {
+            console.log("Nota no vàlida.");
+            }
+        </code>
+    </pre>
+
+    <p>
+        En JavaScript pots posar tants else if com vulguis. Aquesta estructura serveix per comprovar diverses condicions, una darrere l’altra, en ordre. El programa llegeix de dalt a baix: Quan troba una condició que és true, executa aquell bloc i s’atura. Si cap condició és true, pot acabar amb un else final (opcional).
+    </p>
+
+    <h2>
+        Bones pràctiques i trucs
+    </h2>
+
+    <ol>
+
+    <h2>
+        <li>
+            Cura amb l'ordre de les condicions
+        </li>
+    </h2>
+
+    <p>
+        S'ha anar amb molta cura amb l'ordre de les condicions. Sempre escriu de més gran a més petit. Si no ho fem així, podem tenir problemes com ara en aquest exemple:
+    </p>
+
+    <pre>
+        <code>
+            if (nota >= 5) {
+                // Això s’executaria també per un 9!
+            } else if (nota >= 9) {
+                // Mai s’executaria perquè el primer ja ha entrat
+            }
+        </code>
+    </pre>
+
+    <h2>
+        <li>
+            Evita comparacions sense tipus
+        </li>
+    </h2>
+
+   <p>
+        == compara només valor i === compara valor i tipus
+   </p>
+
+    <pre>
+        <code>
+            console.log("5" == 5);   // true ❗ (no comprova tipus)
+            console.log("5" === 5);  // false ✅ (comprova tipus també)
+        </code>
+    </pre>
+
+
+    <h2>
+        <li>
+            Pots simplificar amb intervals
+        </li>
+    </h2>
+
+    <pre>
+        <code>
+            if (nota >= 0 && nota < 5) {
+                console.log("Suspès");
+            }
+        </code>
+    </pre>
+
+    <h2>
+        <li>
+            Cura amb el prompt
+        </li>
+    </h2>
+
+    <p>
+        Tot el que entra pel prompt és text, cal convertir-ho si vols fer comparacions numèriques:
+    </p>
+
+    <pre>
+        <code>
+            let edat = Number(prompt("Quants anys tens?"));
+        </code>
+    </pre>
+
+    <h2>
+        <li>
+            També pots fer servir switch (més endavant)
+        </li>
+    </h2>
+
+    <p>
+        El switch es fa servir quan les condicions són igualtats concretes. EL veurem més endavant.
+    </p>
+
+    <pre>
+        <code>
+            let color = "vermell";
+            switch (color) {
+            case "vermell":
+                console.log("Atura’t!");
+                break;
+            case "verd":
+                console.log("Passa!");
+                break;
+            default:
+                console.log("Color desconegut.");
+            }
+        </code>
+    </pre>
+    </ol>
+
+    <h2>
+        Exercicis
+    </h2>
+
+    <ol>
+    <li>
+        <strong>Parell o senar</strong><br>
+        Demana a l’usuari un número i digues si és parell o senar.
+        
+        <button onclick="mostrarSolucio('solucio1')">
+            Mostra / Amaga solució
+        </button>
+        <pre id="solucio1" style="display:none;">
+            <code>
+                let num = Number(prompt("Introdueix un número"));
+
+                if (num % 2 === 0) {
+                console.log("És parell");
+                } else {
+                console.log("És senar");
+                }
+            </code>
+        </pre>
+    </li>
+
+    <li>
+        <strong>Comprovador d’edat</strong><br>
+        Demana l’edat de l’usuari i mostra un missatge segons l’edat (infant, adolescent o adult).
+        
+        <button onclick="mostrarSolucio('solucio2')">
+            Mostra / Amaga solució
+        </button>
+        <pre id="solucio2" style="display:none;">
+            <code>
+                let edat = Number(prompt("Quina edat tens?"));
+
+                if (edat < 12) {
+                console.log("Ets un infant");
+                } else if (edat < 18) {
+                console.log("Ets adolescent");
+                } else {
+                console.log("Ets adult");
+                }
+            </code>
+        </pre>
+    </li>
+
+    <li>
+        <strong>Nota final</strong><br>
+        Demana una nota i mostra la qualificació corresponent (Suspès, aprovat, Notable o Excel·lent).
+        
+        <button onclick="mostrarSolucio('solucio3')">
+            Mostra / Amaga solució
+        </button>
+        <pre id="solucio3" style="display:none;">
+            <code>
+                let nota = Number(prompt("Introdueix la teva nota (0-10)"));
+
+                if (nota >= 0 && nota < 5) {
+                console.log("Suspès");
+                } else if (nota >= 5 && nota < 7) {
+                console.log("Aprovat");
+                } else if (nota >= 7 && nota < 9) {
+                console.log("Notable");
+                } else if (nota >= 9 && nota <= 10) {
+                console.log("Excel·lent");
+                } else {
+                console.log("La nota no és vàlida");
+                }
+            </code>
+        </pre>
+    </li>
+
+    <li>
+        <strong>Semàfor</strong><br>
+        Demana un color (vermell, groc o verd) i mostra la reacció.
+        
+        <button onclick="mostrarSolucio('solucio4')">
+            Mostra / Amaga solució
+        </button>
+        <pre id="solucio4" style="display:none;">
+            <code>
+                let color = prompt("Introdueix un color de semàfor").toLowerCase();
+
+                if (color === "vermell") {
+                console.log("Atura’t");
+                } else if (color === "groc") {
+                console.log("Vés amb compte");
+                } else if (color === "verd") {
+                console.log("Pots passar");
+                } else {
+                console.log("Color desconegut");
+                }
+            </code>
+        </pre>
+    </li>
+
+    <li>
+        <strong>Calculadora senzilla</strong><br>
+        Demana dos números i una operació, i mostra el resultat.
+        
+        <button onclick="mostrarSolucio('solucio5')">
+            Mostra / Amaga solució
+        </button>
+        <pre id="solucio5" style="display:none;">
+            <code>
+                let num1 = Number(prompt("Introdueix el primer número"));
+                let num2 = Number(prompt("Introdueix el segon número"));
+                let operacio = prompt("Introdueix l’operació (+, -, *, /)");
+
+                let resultat;
+
+                if (operacio === "+") {
+                resultat = num1 + num2;
+                } else if (operacio === "-") {
+                resultat = num1 - num2;
+                } else if (operacio === "*") {
+                resultat = num1 * num2;
+                } else if (operacio === "/") {
+                if (num2 === 0) {
+                    resultat = "No es pot dividir per zero";
+                } else {
+                    resultat = num1 / num2;
+                }
+                } else {
+                resultat = "Operació no vàlida";
+                }
+
+                console.log("Resultat:", resultat);
+            </code>
+        </pre>
+    </li>
+    </ol>
+
+    <script>
+    function mostrarSolucio(id) {
+    const bloc = document.getElementById(id);
+    bloc.style.display = bloc.style.display === "none" ? "block" : "none";
+    }
+    </script>
+
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+</body>
+</html>

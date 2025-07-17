@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undefined, null i NaN a JavaScript</title>
+</head>
+<body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
+    <h1>Undefined, null i NaN a JavaScript</h1>
+
+    <h2>
+        1. Què és <code>undefined</code>?
+    </h2>
+    
+    <p>
+        Quan una variable és declarada però no té valor assignat, JavaScript li dona automàticament el valor <code>undefined</code>. També pot aparèixer si una funció no retorna res explícitament.
+    </p>
+    
+    <pre>
+        <code>
+            let x;
+            console.log(x); // undefined
+
+            function saluda() {
+                console.log("Hola!");
+            }
+            let resultat = saluda(); // undefined perquè no hi ha return
+        </code>
+    </pre>
+
+    <h2>
+        2. Què és <code>null</code>?
+    </h2>
+   
+    <p>
+        El valor <code>null</code> és assignat de manera intencionada per indicar que una variable no té cap valor. És un valor "buit" explícit.
+    </p>
+
+    <pre>
+        <code>
+            let usuari = null;
+            console.log(usuari); // null
+        </code>
+    </pre>
+
+    <h2>
+        3. Què és <code>NaN</code>?
+    </h2>
+    
+    <p>
+        Significa “Not a Number” (no és un número). Apareix quan intentes fer una operació matemàtica amb un valor que no es pot convertir a número.
+    </p>
+    
+    <pre>
+        <code>
+            let resultat = "hola" * 3;
+            console.log(resultat); // NaN
+
+            let nom = "Anna";
+            console.log(Number(nom)); // NaN
+        </code>
+    </pre>
+
+    <h2>
+        4. Exercicis ràpids
+    </h2>
+    
+    <ul>
+        <li>Declara una variable sense assignar i mostra el seu valor.</li>
+        <li>Assigna <code>null</code> a una variable i mostra-la.</li>
+        <li>Multiplica una cadena no numèrica per un número i observa el resultat.</li>
+    </ul>
+
+    <button onclick="mostrarSolucio('solucio19')">
+        Mostra solucions
+    </button>
+    
+    <pre id="solucio19" style="display:none">
+        <code>
+            let a;
+            console.log(a); // undefined
+
+            let b = null;
+            console.log(b); // null
+
+            let c = "gat" * 2;
+            console.log(c); // NaN
+        </code>
+    </pre>
+
+    
+
+    <h2>
+        Conclusió
+    </h2>
+    <p>
+        <strong>undefined</strong> indica que una variable no té valor assignat automàticament. <strong>null</strong> és un valor assignat manualment per indicar absència de valor. <strong>NaN</strong> apareix quan intentem fer càlculs amb valors no numèrics. És important diferenciar-los per evitar errors comuns en el teu codi.
+    </p>
+
+    <script>
+        function mostrarSolucio(id) {
+        const bloc = document.getElementById(id);
+        bloc.style.display = bloc.style.display === "none" ? "block" : "none";
+        }
+    </script>
+
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+</body>
+</html>

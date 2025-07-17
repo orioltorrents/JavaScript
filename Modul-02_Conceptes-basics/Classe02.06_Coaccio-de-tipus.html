@@ -7,6 +7,10 @@
     <title>Coacció de tipus a JavaScript</title>
 </head>
 <body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
     <h1>
         Coacció de tipus a JavaScript
     </h1>
@@ -67,11 +71,13 @@
         <code>String()</code> és una funció global que converteix qualsevol valor a cadena. En canvi, <code>.toString()</code> és un mètode que només funciona en objectes i tipus que el tenen. Per exemple:
     </p>
 
-    <pre><code>
+    <pre>
+        <code>
         let num = 99;
         console.log(num.toString());    // '99'
         console.log(String(num));       // '99'
-
+        </code>
+    </pre>  
     <h2>
         Coerció explícita Vs Coerció implícita
     </h2>
@@ -79,6 +85,8 @@
     <p> 
         La <strong>coacció implícita</strong> és quan JavaScript converteix els tipus de manera automàtica segons el context (per exemple, si sumem un número i una cadena, el número es converteix en text). En canvi, la <strong>coacció explícita</strong> és quan el programador decideix fer la conversió usant funcions com <code>Number()</code>, <code>String()</code> o <code>Boolean()</code>. Tot i que la coacció implícita pot semblar pràctica, sovint genera comportaments inesperats o errors difícils de detectar. Per aquest motiu, en programes clars i segurs es recomana fer servir la coacció explícita sempre que sigui possible. 
     </p>
-
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
 </body>
 </html>
