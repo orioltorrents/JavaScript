@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducció a les funcions</title>
+</head>
+<body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
+    <h1>
+        Introducció a les funcions
+    </h1>
+
+    <ul>
+        <li><a href="#perque-serveixen">Què són i per què serveixen les funcions?</a></li>
+        <li><a href="#exemple-analogia">Analogia d'una funció</a></li>
+        <li><a href="#declaracio-funcio">Declaració de funció (Function Declaration)</a></li>
+        <li><a href="#expressio">Expressió de funció (Function Expression)</a></li>
+        <li><a href="#funcions-amb-parametres">Funcions amb paràmetres</a></li>
+        <li><a href="#funcions-amb-retorn">Funcions amb retorn</a></li>
+        <li><a href="#funcions-amb-nom">Expressió de funció amb nom</a></li>
+        <li><a href="#funcions-anonimes">Funcions anònimes</a></li>
+        <li><a href="#funcions-fletxa">Funcions fletxa</a></li>
+        <li><a href="#funcions-recursives">Funcions recursives</a></li>
+    </ul>
+
+    <h2 id="perque-serveixen">
+        Què són i per què serveixen les funcions?
+    </h2>
+
+    <p>
+        Una <strong>funció</strong> és un bloc de codi reutilitzable que podem executar quan cridem la funció. Ens ajuda a organitzar el codi, evitar repeticions i fer-lo més entenedor. 
+    
+    <p>
+        Les funcions ens permeten fer codi modular, és a dir, dividir el nostre programa en parts més petites i gestionables.
+    </p>
+    
+    <p>
+        Les funcions ens permeten reutilitzar codi, ja que podem definir una funció una vegada i després cridar-la tantes vegades com vulguem.
+    </p>
+    
+    <p>
+        En general, les funcions tenen un nom, paràmetres (opcionals) i un retorn (opcional).
+    </p>
+
+    <h2 id="exemple-analogia">
+        Analogia d'una funció
+    </h2>
+
+    <p>
+        Imagina que tens una torradora a la cuina. La torradora és electrodomètic que fa una funció: fa una feina específica sempre que la cridem (li donem pa!).
+    </p>
+
+    <img src="/assets/images/03_Fonaments-de-les-funcions/torradora.png" alt="torradora" height="300px">
+    <p>
+        Una funció és com un electrodomèstic: Li dones una entrada (com una llesca de pa), fa una acció (torra el pa) i et torna una sortida (la torrada). A més, pots usar-la tantes vegades com vulguis amb entrades diferents!
+    </p>
+
+    <p>
+        Podriem donar altres exemple amb una cafetera o una rentadora.
+    </p>
+
+    <a href="#top" style="font-size: 0.6em;"> Torna a l’índex de les funcions</a>
+
+    <h2 id="declaracio-funcio">
+        Declaració de funció (Function Declaration) </h2> 
+    
+    <p>
+        Utilitzem la paraula clau <code>function</code> seguida del nom, parèntesis i claus:
+    </p>
+
+    <pre>
+        <code>
+            // Declarem la funció
+            function saluda() {
+                // codi que executarà
+                console.log("Hola!");
+            }
+
+            // L'executem (cridem la funció)
+            saluda();
+        </code>
+    </pre>
+
+    <p>
+        <p><strong>Avantatge:</strong> Es carrega abans d’executar-se el codi, així que es pot fer servir en qualsevol lloc del fitxer.</p>
+    </p>
+
+    <a href="#top" style="font-size: 0.6em;"> Torna a l’índex de les funcions</a>
+
+    <h2 id="expressio">
+        Expressió de funció (Function Expression)
+    </h2>
+
+    <p>
+        La funció no comença amb la paraula reservada <code>function</code> sinó que tenim una variable a la qual li assignem la funció. En el cas de l'expressió de funció, la funció pot portar nom i pot ser anònima.
+    </p>
+
+    <pre>
+        <code>
+            // Expressió d'una funció no anònima
+            let func = function saluda() {
+            console.log("Hola!");
+            }
+            func();
+        </code>
+    </pre>
+
+    <p>
+        Si fem <code>saluda()</code> FORA DE LA FUNCIÓ per cridar la funció no funcionarà. Perquè el nom saluda només és vàlid dins del cos de la funció. Això permet, per exemple, fer crides recursives (com en aquest cas), però no exposa aquest nom a l’àmbit global o extern.
+    </p>
+
+    <pre>
+        <code>
+            // Expressió d'una funció anònima
+            let saluda = function() {
+            console.log("Hola!");
+            }
+            saluda();
+        </code>
+    </pre>
+
+    <h2 id="funcions-amb-parametres">
+        Funcions amb paràmetres
+    </h2>
+    
+    <p>
+        Podem passar informació a la funció mitjançant paràmetres:
+    </p>
+
+    <pre>
+        <code>
+            function saludaNom(nom) {
+            console.log("Hola, " + nom + "!");
+            }
+
+            saludaNom("Oriol");
+        </code>
+    </pre>
+
+    <p>
+        nom dins function saludaNom(nom) és el paràmetre. Quan cridem saludaNom("Oriol"), el valor "Oriol" es passa com a argument i s’assigna a nom. Així, dins console.log("Hola, " + nom + "!");, s'imprimeix Hola, Oriol!. Això ens permet fer la funció més flexible i reutilitzable.
+    </p>
+
+    <p>
+        Si en lloc de nom al cos hi poséssim, per exemple, console.log("Hola, " + nomUsuari + "!");, donaria error perquè nomUsuari no existeix dins l'àmbit de la funció.
+    </p>
+    
+    <p>
+        Els paràmetres ens permeten passar dades a la funció per fer-la més flexible i reutilitzable.
+    </p>
+    
+    <p>
+        Podem passar tants paràmetres com vulguem, separats per comes:
+    </p>
+    
+    <pre>
+        <code>
+            function saludaNom(nom, cognom) {
+                console.log("Hola, " + nom + " " + cognom + "!");
+            }
+            
+            saludaNom("Oriol", "Garriga");
+        </code>
+    </pre>
+   
+    <h2 id="funcions-amb-retorn">
+        Funcions amb retorn
+    </h2>
+
+    <p>
+        Podem fer que una funció ens retorni un valor amb la paraula clau <code>return</code>:
+    </p>
+
+    <pre>
+        <code>
+            function suma(a, b) {
+                return a + b;
+            }
+            
+            const resultat = suma(2, 3);
+            console.log(resultat); // 5
+        </code>
+    </pre>
+    
+    <p>
+        En aquest exemple, la funció suma ens retorna la suma de dos números. Podem guardar el valor retornat en una variable i utilitzar-lo després.
+    </p>
+    
+    <p>
+        Quan una funció retorna un valor, podem utilitzar-lo directament en una operació o assignar-lo a una variable.
+    </p>
+
+    <p>
+        Un altre exemple
+    </p>
+
+    <pre>
+        <code>
+            function quadrat(nombre){
+                return nombre * nombre;
+            }
+            quadrat(2);
+        </code>
+    </pre>
+
+    <p>
+        Un exemple que combina una expressió de funció amb paràmetres 
+    </p>
+
+    <pre>
+        <code>
+            const calculaFactorial = function factorial(n) {
+            if (n === 0) return 1;
+            return n * factorial(n - 1);
+        };
+        </code>
+    </pre>
+
+    <p>
+        Què fa aquest codi ? Hi ha una funció anomenada factorial que es pot cridar a si mateixa des de dins, però només és accessible des de fora amb el nom de la variable: calculaFactorial. La condició de parada (n === 0) i evita que la funció s’executi infinitament. Si no hi fos, es produiria un error. La recursivitat (factorial(n - 1)): va cridant la mateixa funció amb valors més petits fins que arriba a 0.
+    </p>
+
+    <p>
+        Per veure-ho encara més clar, ho podem treure tot per consola
+    </p>
+
+    <pre>
+        <code>
+            const calculaFactorial = function factorial(n) {
+                console.log("Cridant factorial amb n =", n);
+
+                if (n === 0) {
+                    console.log("Tornem 1 perquè n és 0");
+                    return 1;
+                }
+
+                let resultat = n * factorial(n - 1);
+                console.log(`Resultat de factorial(${n}) = ${resultat}`);
+
+                return resultat;
+            };
+
+            calculaFactorial(4);
+        </code>
+    </pre>
+    
+    <h2 id="funcions-anonimes">
+        Funcions anònimes
+    </h2>
+    
+    <p>
+        Les funcions anònimes són funcions que no tenen nom. Es poden assignar a una variable o passar com a argument a una altra funció.
+    </p>
+    
+    <pre>
+        <code>
+            const saluda = function() {
+                console.log("Hola!");
+            };
+            
+            saluda();
+        </code>
+    </pre>
+    
+    <p>
+        En aquest exemple, la funció anònima s'assigna a la variable saluda. Podem cridar la funció utilitzant el nom de la variable.
+    </p>
+
+    <a href="#top" style="font-size: 0.6em;"> Torna a l’índex de les funcions</a>
+    
+    <h2 id="funcions-fletxa">
+        Funcions fletxa
+    </h2>
+    
+    <p>
+        Les funcions fletxa són una forma més curta d'escriure funcions. Es defineixen utilitzant la sintaxi <code>=></code>:
+    </p>
+    
+    <pre>
+        <code>
+            const saluda = () => {
+                console.log("Hola!");
+            };
+            
+            saluda();
+        </code>
+    </pre>
+    
+    <p>
+        En aquest exemple, la funció fletxa s'assigna a la variable saluda. Podem cridar la funció utilitzant el nom de la variable.
+    </p>
+    
+    <p>
+        Les funcions fletxa tenen algunes diferències amb les funcions tradicionals:
+    </p>
+    
+    <ul>
+        <li>
+            No tenen el seu propi <code>this</code>. Utilitzen el <code>this</code> del context en què es defineixen.
+        </li>
+        <li>
+            No poden ser utilitzades com a constructors.
+        </li>
+        <li>
+            No tenen el seu propi <code>arguments</code> objecte.
+        </li>
+    </ul>
+
+    <a href="#top" style="font-size: 0.6em;"> Torna a l’índex de les funcions</a>
+    
+    <h2 id="funcions-recursives">
+        Funcions recursives
+    </h2>
+         
+    <p>
+        Una <strong>funció recursiva</strong> és una funció que es crida a si mateixa per resoldre un problema en passos més petits. És com quan baixem una escala, graó a graó, fins arribar a baix de tot.
+    </p>
+
+    <p>
+        Perquè una funció recursiva funcioni correctament, ha de tenir:
+    </p>
+
+    <ul>
+        <li><strong>Cas base</strong>: la condició que atura la recursivitat. Evita que la funció s’executi infinitament.</li>
+        <li><strong>Crida recursiva</strong>: la funció es crida a si mateixa amb un valor més senzill.</li>
+    </ul>
+    
+    <h3>
+        Exemple: factorial
+    </h3>
+
+    <p>
+        El <strong>factorial</strong> d’un nombre és el producte de tots els nombres enters des de 1 fins a aquest nombre. Es denota com <code>n!</code> i es defineix així:
+    </p>
+
+    <ul>
+        <li><code>0! = 1</code> (cas base)</li>
+        <li><code>n! = n * (n - 1)!</code> (crida recursiva)</li>
+    </ul>
+
+    <pre>
+        <code>
+            // Funció recursiva per calcular el factorial
+            function factorial(n) {
+                if (n === 0) {
+                    return 1; // Cas base
+                }
+                return n * factorial(n - 1); // Crida recursiva
+            }
+
+            console.log(factorial(5)); // Mostra: 120
+        </code>
+    </pre>
+
+    <h3>
+        Visualització pas a pas (factorial(3))
+    </h3>
+
+    <pre>
+        <code>
+        factorial(3)
+        → 3 * factorial(2)
+        → 3 * (2 * factorial(1))
+        → 3 * (2 * (1 * factorial(0)))
+        → 3 * 2 * 1 * 1 = 6
+        </code>
+    </pre>
+
+    <h3>
+        ⚠️ Trampes a evitar
+    </h3>
+
+    <ul>
+        <li>Si no poses un cas base, la funció s’executarà infinitament i donarà error.</li>
+        <li>Cal anar amb compte amb la memòria: cada crida es guarda en una pila (stack) que pot omplir-se si hi ha massa crides.</li>
+    </ul>
+
+    <h3>
+        Quan usar recursivitat?
+    </h3>
+
+    <p>
+        És útil quan un problema es pot dividir en versions més petites del mateix problema, com:
+    </p>
+
+    <ul>
+        <li>Càlculs matemàtics (factorial, Fibonacci...)</li>
+        <li>Recórrer estructures com arbres o directoris</li>
+        <li>Resolució de problemes complexos per passos</li>
+    </ul>
+
+    <a href="#top" style="font-size: 0.6em;"> Torna a l’índex de les funcions</a> <br><br>
+
+    <video width="600" controls>
+    <source src="/assets/videos/03_fundamentos-de-funciones/01_introduccion-a-las-funciones.mp4" type="video/mp4">
+    El teu navegador no suporta el vídeo.
+    </video>
+    
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>  
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcions pures</title>
+</head>
+<body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
+    <h1>Funcions pures</h1>
+
+    <p>
+        Les funcions pures no produeixen efectes secundaris. 
+    </p>
+
+    <h2>Un efecte secundari</h2>
+
+    <p>
+        Presentem un array <code>let edats = [20]</code> amb un sol valor. Li passem una funció que fa variar l'unic valor de l'array.
+    </p>
+
+    <pre>
+        <code>
+            let edats = [20]
+            function modificador(edats){
+                edats[0] = 25;
+            }
+            console.log(edats);
+            modificador(edats);
+            console.log(edats);
+        </code>
+    </pre>
+
+    <p>
+        Fem una copia de l'array perquè la funció sigui pura
+    </p>
+
+    <pre>
+        <code>
+            let edats = [20]
+            function modificador(edats){
+                let copia = [...edats]
+                copia[0] = 25;
+            }
+            console.log(edats);
+            modificador(edats);
+            console.log(edats);
+        </code>
+    </pre>
+    
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>  
+</body>
+</html>

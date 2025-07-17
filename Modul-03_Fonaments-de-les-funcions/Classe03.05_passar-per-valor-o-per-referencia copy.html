@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passar per valor o per referència</title>
+</head>
+<body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
+    <h1>Passar per valor o per referència</h1>
+
+    <p>
+        Quan passem una variable com a argument a una funció, aquesta pot comportar-se de dues maneres diferents:
+    </p>
+
+    <ul>
+        <li><strong>Passar per valor</strong>: es fa una còpia del valor. Els canvis dins la funció no afecten la variable original.</li>
+        <li><strong>Passar per referència</strong>: es passa l’adreça de memòria. Els canvis dins la funció afecten l’original.</li>
+    </ul>
+
+    <h2>
+        Exemple: Passar per valor
+    </h2>
+
+    <pre>
+        <code>
+            function incrementa(x) {
+            x = x + 1;
+            console.log("Dins la funció:", x); // 6
+            }
+
+            let num = 5;
+            incrementa(num);
+            console.log("Fora de la funció:", num); // 5
+    
+        </code>
+    </pre>
+
+    <p>
+        🧠 Aquí, <code>num</code> és un número (tipus primitiu), i per tant es passa per valor. El paràmetre <code>x</code> és una còpia. Quan es modifica <code>x</code>, la variable original <code>num</code> no canvia.
+    </p>
+
+    <h2>
+        Exemple: Passar per referència
+    </h2>
+
+    <pre>
+        <code>
+            function afegeixProp(obj) {
+            obj.edat = 30;
+            console.log("Dins la funció:", obj);
+            }
+
+            let persona = { nom: "Joan" };
+            afegeixProp(persona);
+            console.log("Fora de la funció:", persona);
+        </code>
+    </pre>
+
+    
+    <p>
+        Creem un objecte persona amb una sola propietat: <code>let persona = { nom: "Joan" };</code>. <Cridem la funció afegeixProp, passant-li aquest objecte: code>afegeixProp(persona);</code>. Dins la funció, la variable obj no és una còpia del contingut, sinó una referència al mateix objecte persona. Això vol dir que: <code>obj.edat = 30;</code> afegeix una nova propietat a l'objecte original. Ara l'objecte té dues propietats: <code>{ nom: "Joan", edat: 30 }</code>. Quan fem: <code>console.log("Dins la funció:", obj);</code> S’imprimeix el contingut de l’objecte modificat. I fora de la funció: <code>console.log("Fora de la funció:", persona);</code> També veiem { nom: "Joan", edat: 30 }, perquè l'objecte original ha estat modificat des de dins la funció.
+    </p>
+
+    <p>
+        🧠 Aquí, <code>persona</code> és un objecte. El paràmetre <code>obj</code> apunta al mateix objecte que <code>persona</code>. Qualsevol canvi dins la funció afecta directament l’objecte original.
+    </p>
+
+    <h2>
+        Com saber si s'ha passat per valor o per referència?
+    </h2>
+
+    <p>
+        Un valor ha sigut enviat com a <strong>referència</strong> quan el paràmetre de la funció <strong>apunta al mateix objecte</strong> que la variable original. Això passa amb:
+    </p>
+    <ul>
+        <li>Objectes</li>
+        <li>Arrays</li>
+        <li>Funcions</li>
+    </ul>
+
+    <p>
+        En canvi, s’envia com a <strong>valor</strong> quan el paràmetre <strong>és una còpia</strong> i els canvis no afecten l’exterior. Això passa amb:
+    </p>
+    <ul>
+        <li>Number</li>
+        <li>String</li>
+        <li>Boolean</li>
+        <li>undefined</li>
+        <li>null</li>
+    </ul>
+
+    <h2>
+        Conclusió
+    </h2>
+
+    <p>
+        És molt important entendre aquest concepte per evitar canvis inesperats en les dades del nostre programa. Si passes un objecte o un array a una funció, **estàs donant-li accés directe** per modificar-lo!
+    </p>
+
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>  
+</body>
+</html>

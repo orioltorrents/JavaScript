@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Scope local de bloc o de funció</title>
+</head>
+<body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
+    <h1>
+        L'Scope local de bloc o de funció
+    </h1>
+
+    <p>
+        En JavaScript, l'<strong>àmbit</strong> (scope) fa referència a on podem accedir a una variable dins del codi. Quan una variable es declara dins d’una funció o bloc, no es pot accedir des de fora. Això evita confusions i errors, ja que les variables només viuen on tenen sentit.
+    </p>
+
+    <h2>
+        Scope local de funció
+    </h2>
+
+    <p>
+        Les variables declarades dins d’una funció només són visibles dins d’aquella funció. Aquest és un comportament tradicional de JavaScript.
+    </p>
+
+    <pre>
+        <code>
+            function saluda() {
+                let missatge = "Bon dia!";
+                console.log(missatge); // Accessible aquí
+            }
+
+            saluda();
+            console.log(missatge); // ❌ Error: missatge no està definida fora de la funció
+        </code>
+    </pre>
+
+    <h2>
+        Scope local de bloc
+    </h2>
+
+    <p>
+        Amb <code>let</code> i <code>const</code>, també podem declarar variables dins d’un bloc (com un <code>if</code>, <code>for</code>, etc.), i només existiran dins d’aquell bloc.
+    </p>
+
+    <pre>
+        <code>
+            if (true) {
+                const resposta = "Sí!";
+                console.log(resposta); // Accessible dins del bloc
+            }
+
+            console.log(resposta); // ❌ Error: resposta no està definida fora del bloc
+        </code>
+    </pre>
+
+    <h2>⚠️ Compte amb <code>var</code>: pot sortir del bloc!</h2>
+
+    <p>
+        Si declares una variable amb <code>var</code> dins d’un bloc com un <code>if</code>, aquesta variable no queda limitada a dins del bloc. Això pot provocar comportaments inesperats.
+    </p>
+
+    <pre><code>
+    if (true) {
+        var missatge = "Hola!";
+        console.log(missatge); // Funciona dins del bloc
+    }
+
+    console.log(missatge); // 😲 Encara funciona fora del bloc!
+    </code></pre>
+
+    <p>
+        En aquest exemple, <code>missatge</code> està disponible fora del bloc <code>if</code> perquè <code>var</code> té <strong>scope de funció</strong>, no de bloc. És per això que es recomana evitar <code>var</code> i utilitzar <code>let</code> o <code>const</code>, que sí respecten l’àmbit de bloc.
+    </p>
+
+    <h2>
+        Principi del menor accés necessari
+    </h2>
+
+    <p>
+        És una bona pràctica declarar variables dins de l'àmbit més petit possible. Això fa que el codi sigui més segur, previsible i fàcil de mantenir. Evita que una variable pugui ser modificada des d'on no toca.
+    </p>
+
+    <h2>
+        Comparació resumida
+    </h2>
+
+    <ul>
+        <li><strong>Global:</strong> accessible des de tot arreu (evitar si es pot).</li>
+        <li><strong>Funció:</strong> accessible només dins de la funció on es declara.</li>
+        <li><strong>Bloc:</strong> accessible només dins del bloc on es declara (<code>{ }</code>).</li>
+    </ul>
+
+    <h2>
+        Conclusió
+    </h2>
+
+    <p>
+        JavaScript permet controlar l’abast de les variables per protegir el nostre codi. Sempre que puguis, utilitza <code>let</code> o <code>const</code> i declara les variables al bloc més específic possible. Això segueix el principi del menor accés i t’ajudarà a evitar errors difícils de trobar. Finalment, sigueu conscients dels àmbits de var i de let.
+    </p>
+
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>  
+</body>
+</html>

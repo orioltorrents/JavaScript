@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'Scope o l'abast</title>
+    <title>Scope o Àmbit</title>
 </head>
 <body>
     <p>
@@ -12,28 +12,139 @@
     </p>
 
     <h1>
-        L'Scope o o l'abast
+        Scope o Àmbit
     </h1>
 
     <p>
-        JavaScript és un llenguatge de programació de text, interpretat pel navegador (com Chrome o Firefox). Això vol dir que s’escriu en fitxers .js o dins d’un &lt;script&gt; a HTML, i el navegador l’entén línia a línia, sense necessitat de compilar com passa amb altres llenguatges. 
+        El <strong>scope</strong> (o abast) fa referència a on es pot accedir a una variable dins del teu codi. A JavaScript, hi ha dos grans tipus d’abast: <strong>global</strong> i <strong>local</strong>.
     </p>
 
-    <ul>
-        <li><strong>Interpretat pel navegador:</strong> No cal cap programa especial per executar el codi. Quan obres una pàgina web, el navegador (com Chrome o Firefox) ja entén i executa el JavaScript línia a línia.</li>
-      
-        <li><strong>Tipatge dinàmic:</strong> No cal dir si una variable és un número, una paraula, etc. El JavaScript ho entén sol segons el que li donis. Per exemple, <code>let edat = 15;</code> ja sap que és un número.</li>
-      
-        <li><strong>Tipatge dèbil:</strong> Si combines variables diferents (com un número i una paraula), JavaScript intentarà adaptar-se sol. Per exemple: <code>"Tens " + 15</code> dona com a resultat <code>"Tens 15"</code>.</li>
-      
-        <li><strong>Case-sensitive:</strong> Té en compte les majúscules i minúscules. Les variables <code>Nom</code> i <code>nom</code> no són el mateix!</li>
-      
-        <li><strong>Basat en objectes:</strong> Moltes estructures a JavaScript (com textos, números, dates...) es poden utilitzar com si fossin caixes amb eines. Per exemple, una cadena com <code>"Hola"</code> té mètodes com <code>.length</code> per saber quantes lletres té.</li>
-      
-        <li><strong>Orientat a esdeveniments:</strong> El JavaScript pot "escoltar" el que fa l’usuari (clicar, escriure, moure el ratolí...) i actuar quan això passa.</li>
-      
-        <li><strong>Multiplataforma:</strong> Funciona a qualsevol ordinador o mòbil, sigui del sistema que sigui (Windows, Mac, Android, iPhone...).</li>
-      </ul>
+    <h2>
+        Principi del menor accés
+    </h2>
+   
+    <p>
+        En programació, és bona pràctica seguir el <strong>principi del menor accés</strong> (o <em>least privilege</em>): això vol dir que les variables s’han de declarar només allà on es necessiten. Si una variable només s’usa dins d’una funció o un bloc, no s’hauria de declarar fora d’aquest àmbit.
+    </p>
+
+    <p>
+        Això ajuda a fer el codi més segur, més fàcil d'entendre i evita errors inesperats, com sobreescriure variables sense voler. A més, evita “contaminar” l’espai global amb variables que no cal que siguin visibles arreu.
+    </p>
+
+    <h2>
+        Com decideix JS quina variable agafar?
+    </h2>
+    
+    <p>
+        Quan JavaScript troba una variable, comença buscant-la des de dins cap enfora: primer mira si està dins del mateix bloc o funció, després puja al bloc exterior, i així successivament fins arribar al scope global. Si no la troba, dona error.
+    </p>
+
+    <pre>
+        <code>
+            let nom = "Anna"; // Scope global
+
+            function saludar() {
+                let nom = "Joan"; // Scope local, oculta la global
+                console.log(nom); // Mostra "Joan", perquè troba aquesta abans
+            }
+
+            saludar();
+            console.log(nom); // Mostra "Anna", la global
+                
+        </code>
+    </pre>
+
+    <h2>
+        Scope global
+    </h2>
+    
+    <p>
+        Una variable té abast global quan es declara fora de qualsevol funció o bloc. Això vol dir que es pot accedir a ella des de qualsevol lloc del programa.
+    </p>
+
+    <pre>
+        <code>
+            // Variable global
+            let missatge = "Hola, món!";
+
+            function saludar() {
+                console.log(missatge); // Pot accedir-hi perquè és global
+            }
+
+            saludar();
+            console.log(missatge); // També aquí
+        </code>
+    </pre>
+
+    <h2>
+        Scope local
+    </h2>
+   
+    <p>
+        Una variable és local quan es declara dins d’una funció o bloc amb <code>let</code> o <code>const</code>. Només es pot fer servir dins d’aquest bloc.
+    </p>
+
+    <pre>
+        <code>
+            function provaLocal() {
+                let secret = "Només dins la funció";
+                console.log(secret); // Correcte
+            }
+
+            provaLocal();
+            // console.log(secret); // Error! No existeix fora de la funció
+        </code>
+    </pre>
+
+    <h2>
+        Scope dins de blocs (if, for...)
+    </h2>
+   
+    <p>
+        Amb <code>let</code> i <code>const</code>, les variables també tenen scope limitat dins dels blocs (com els <code>if</code> o <code>for</code>).
+    </p>
+
+    <pre>
+        <code>
+            if (true) {
+                let bloc = "Estic dins d’un bloc";
+                console.log(bloc); // Funciona
+            }
+
+            // console.log(bloc); // Error! Fora del bloc
+        </code>
+    </pre>
+
+    <h2>
+        Exemple amb conflicte entre scopes
+    </h2>
+    
+    <p>
+        Si declares una variable local amb el mateix nom que una global, la local "oculta" la global dins del seu àmbit.
+    </p>
+
+    <pre>
+        <code>
+            let nom = "Anna";
+
+            function mostrarNom() {
+                let nom = "Joan"; // Aquesta variable només existeix aquí
+                console.log(nom); // Mostra "Joan"
+            }
+
+            mostrarNom();
+            console.log(nom); // Mostra "Anna"
+        </code>
+    </pre>
+
+    <h2>
+        Conclusió
+    </h2>
+    
+    <p>
+        Entendre bé el <strong>scope</strong> és essencial per evitar errors i conflictes. Sempre que puguis, utilitza variables locals dins de funcions per evitar modificar variables globals accidentalment.
+    </p>
+
     <p>
         <a href="../index.html">Anar a l'índex</a>
     </p>  

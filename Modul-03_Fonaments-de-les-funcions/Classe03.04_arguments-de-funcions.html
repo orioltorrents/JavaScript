@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Scope local de bloc o de funció</title>
+</head>
+<body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
+    <h1>Arguments de funcions</h1>
+
+    <p>
+        Quan definim una funció, podem indicar <strong>paràmetres</strong> que li permetin rebre valors des de fora. Aquests valors s’anomenen <strong>arguments</strong> quan la funció s’executa. D’aquesta manera, les funcions esdevenen molt més flexibles i reutilitzables.
+    </p>
+
+    <h2>
+        Analogia
+    </h2>
+
+    <p>
+        Quan definim una funció, indiquem uns paràmetres (com si fóssim cambrers posant plats buits a la taula). Quan cridem la funció, li passem arguments, que són els valors que omplen aquells plats. Un argument emplena un paràmetre.
+    </p>
+
+    <img src="/assets/images/03_Fonaments-de-les-funcions/parametre-argument-funcions.png" alt="arguments de les funcions" height="300px">
+
+    <h2>
+        Exemple bàsic
+    </h2>
+
+    <pre>
+        <code>
+            // Definim la funció amb un paràmetre
+            function saluda(nom) {
+                console.log("Hola, " + nom + "!");
+            }
+
+            // L'executem passant-li un argument
+            saluda("Joana"); // Mostra: Hola, Joana!
+        </code>
+    </pre>
+
+    <h2>
+        Més d’un argument
+    </h2>
+
+    <pre>
+        <code>
+            function suma(a, b) {
+                console.log("La suma és " + (a + b));
+            }
+
+            suma(5, 3); // Mostra: La suma és 8
+        </code>
+    </pre>
+
+    <h2>
+        Arguments per defecte
+    </h2>
+
+    <p>
+        Podem assignar un valor per defecte als paràmetres, per si no s’indica cap valor:
+    </p>
+
+    <pre>
+        <code>
+            function saluda(nom = "amic") {
+                console.log("Hola, " + nom + "!");
+            }
+
+            saluda(); // Mostra: Hola, amic!
+            saluda("Laia"); // Mostra: Hola, Laia!
+    
+        </code>
+    </pre>
+
+    <h2>
+        Paràmetres vs Arguments
+    </h2>
+    
+    <ul>
+        <li><strong>Paràmetres:</strong> variables que posem entre parèntesis en definir la funció.</li>
+        <li><strong>Arguments:</strong> valors que passem quan cridem la funció.</li>
+    </ul>
+
+    <h2>
+        Activitat
+    </h2>
+    
+    <p>
+        Escriu una funció anomenada <code>presentacio</code> que rebi dos arguments: <code>nom</code> i <code>edat</code>. Ha de imprimir: <br>
+        <em>"Em dic NOM i tinc EDAT anys."</em>
+    </p>
+
+    <button onclick="mostrarSolucio('solucio1')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio1" style="display:none;">
+        <code>
+            function presentacio(nom, edat) {
+                console.log("Em dic " + nom + " i tinc " + edat + " anys.");
+            }
+
+            presentacio("Pau", 16);
+        </code>
+    </pre>
+
+    <script>
+        function mostrarSolucio(id) {
+            const bloc = document.getElementById(id);
+            bloc.style.display = bloc.style.display === "none" ? "block" : "none";
+        }
+    </script>
+
+
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>  
+</body>
+</html>
