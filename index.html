@@ -1,57 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca"> 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript</title>
+
+    <!-- Estableix la base per a totes les rutes relatives -->
+    <base href="/JavaScript/">
+
+    <title>Curs de JavaScript</title>
+
+    <!-- Full d’estils comú -->
+    <link rel="stylesheet" href="assets/css/comu.css">
+
+    <!-- Script comú (amb defer per no bloquejar) -->
+    <script src="assets/js/comu.js" defer></script>
 </head>
 <body>
-    <img src="/assets/images/01_introduccio/JS.png" alt="logo de JS" height="100px">    
-    <h1>JavaScript</h1>
-        
-    <ol>
-        <li>Mòdul 01 - Introducció</li>
+    <img src="assets/images/01_introduccio/JS.png" alt="logo de JS" height="100px">    
+    
+    <h1>
+        JavaScript
+    </h1>
+
+    <ul>
+        <li>
+            <strong>Mòdul 01 - Introducció</strong>
             <ol>
-                <li><a href="/Modul-01_Introduccio/Classe01.01_Presentacio-del-curs-de-javascript.html" target="_blank">Presentacio del curs de JavaScript (JS)</a></li>
-                <li><a href="/Modul-01_Introduccio/Classe01.02_sobre-javascript.html" target="_blank">Sobre JavaScript</a></li>
-                <li><a href="/Modul-01_Introduccio/Classe01.03_que-farem-en.aquest-curs.html" target="_blank">Què farem en aquest curs</a></li>
-                <li><a href="/Modul-01_Introduccio/Classe01.04_que-hi-ha-de-nou.html" target="_blank">Què hi ha de nou</a></li>
-                <li><a href="/Modul-01_Introduccio/Classe01.05_com-executar-codi-de-javascript.html" target="_blank">Com executar codi de JavaScript</a></li>
-                <li><a href="/Modul-01_Introduccio/Classe01.06_editor-de-text-i-arxius-de-javascript.html" target="_blank">Editor de text i arxius de JavaScript </a></li>
-                <li><a href="/Modul-01_Introduccio/Classe01.07_on-puc-investigar-mes.html" target="_blank">On puc investigar més?</a></li>
-                <li><a href="/Modul-01_Introduccio/Classe01.08_configurar-entorn-de-treball.html" target="_blank">Configurar entorn de treball</a></li>
-                <li><a href="/Modul-01_Introduccio/Classe01.09_imprimir-missatges.html" target="_blank">Imprimir missatges</a></li>
-                <li><a href="/Modul-01_Introduccio/Classe01.10_rebre_dades.html" target="_blank">Rebre dades</a></li>
+                <li><a href="Modul-01_Introduccio/01.01_Presentacio-del-curs-de-javascript.html" target="_blank">Presentació del curs de JavaScript</a></li>
+                <li><a href="Modul-01_Introduccio/01.02_sobre-javascript.html" target="_blank">Sobre JavaScript</a></li>
+                <li><a href="Modul-01_Introduccio/01.03_que-farem-en.aquest-curs.html" target="_blank">Què farem en aquest curs</a></li>
+                <li><a href="Modul-01_Introduccio/01.04_que-hi-ha-de-nou.html" target="_blank">Què hi ha de nou</a></li>
+                <li><a href="Modul-01_Introduccio/01.05_com-executar-codi-de-javascript.html" target="_blank">Com executar codi de JavaScript</a></li>
+                <li><a href="Modul-01_Introduccio/01.06_editor-de-text-i-arxius-de-javascript.html" target="_blank">Editor de text i arxius</a></li>
+                <li><a href="Modul-01_Introduccio/01.08_configurar-entorn-de-treball.html" target="_blank">Configurar entorn de treball</a></li>
+                <li><a href="Modul-01_Introduccio/01.09_imprimir-missatges.html" target="_blank">Imprimir missatges</a></li>
+                <li><a href="Modul-01_Introduccio/01.10_rebre_dades.html" target="_blank">Rebre dades</a></li>
             </ol>
-        <li>Mòdul 02 - Conceptes bàsics</li>
+        </li>
+
+        <li>
+            <strong>Mòdul 02 - Conceptes bàsics</strong>
             <ol>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.01_Com-es-el-llenguatge-tecnicament.html">Com és el llenguatge tècnicament</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.02_Que-son-les-variables-i-les-constants.html">Què són les variables i les constants</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.03_Variables-i-constants-a-javascript.html">Variables i constants a JavaScript</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.04_Nombres-i-operacions-aritmetiques.html" target="_blank">Nombres i operacions aritmètiques a JavaScript</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.05_Tipus-de-dades.html" target="_blank">Tipus de dades a JavaScript</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.06_Coaccio-de-tipus.html">Coacció de tipus a JavaScript</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.07_Booleans.html">Booleans a JavaScript</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.08_Truthy i Falsy.html">Truthy i Falsy a JavaScript</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.09_Operadors de comparació.html" target="_blank">Operadors de comparació a JavaScript</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.10_Operadors lògics.html" target="_blank">Operadors lògics a JavaScript</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.11_Condicions.html" target="_blank">Condicions a JavaScript</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.12_Cicles.html" target="_blank">Cicles a JavaScript</a></li>
-                <li><a href="/Modul-02_Conceptes-basics/Classe02.13_Undefined-null-NaN.html" target="_blank">Undefined, null i NaN a JavaScript</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.01_Com-es-el-llenguatge-tecnicament.html">Com és el llenguatge tècnicament?</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.02_Que-son-les-variables-i-les-constants.html">Variables i constants</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.03_Variables-i-constants-a-javascript.html">Variables a JavaScript</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.04_Nombres-i-operacions-aritmetiques.html">Operacions aritmètiques</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.05_Tipus-de-dades.html">Tipus de dades</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.06_Coaccio-de-tipus.html">Coacció de tipus</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.07_Booleans.html">Booleans</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.08_Truthy-i-Falsy.html">Truthy i Falsy</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.09_Operadors-de-comparacio.html">Operadors de comparació</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.10_Operadors-logics.html">Operadors lògics</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.11_Condicions.html">Condicions</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.12_Cicles.html">Cicles</a></li>
+                <li><a href="Modul-02_Conceptes-basics/02.13_Undefined-null-NaN.html">Undefined, null i NaN</a></li>
             </ol>
-        <li>Mòdul 03 - Fonaments de les funcions</li>
+        </li>
+
+        <li>
+            <strong>Mòdul 03 - Fonaments de les funcions</strong>
             <ol>
-                <li><a href="/Modul-03_Fonaments-de-les-funcions/Classe03.01_Introduccio-a-les-funcions.html">Introducció a les funcions</a></li>
-                <li><a href="/Modul-03_Fonaments-de-les-funcions/Classe03.02_scope.html">L'Scope o l'Àmbit</a></li>
-                <li><a href="/Modul-03_Fonaments-de-les-funcions/Classe03.03_scope-local de-bloc-o-funcio.html">Scope local de bloc o de funció</a></li>
-                <li><a href="/Modul-03_Fonaments-de-les-funcions/Classe03.04_arguments-de-funcions.html">Arguments de les funcions</a></li>
-                <li><a href="/Modul-03_Fonaments-de-les-funcions/Classe03.05_passar-per-valor-o-per-referencia.html">Passar per valor o per referència</a></li>
-                <li><a href="/Modul-03_Fonaments-de-les-funcions/Classe03.06_funcions-pures.html">Funcions pures</a></li>
-                <li><a href="/Modul-03_Fonaments-de-les-funcions/Classe03.07_first-class-objects.html">First class objects</a></li>
-                <li><a href="/Modul-03_Fonaments-de-les-funcions/Classe03.08_hoisting.html">Hoisting</a></li> 
+                <li><a href="Modul-03_Fonaments-de-les-funcions/03.01_Introduccio-a-les-funcions.html">Introducció a les funcions</a></li>
+                <li><a href="Modul-03_Fonaments-de-les-funcions/03.02_scope.html">Scope</a></li>
+                <li><a href="Modul-03_Fonaments-de-les-funcions/03.03_scope-local-de-bloc-o-funcio.html">Scope local</a></li>
+                <li><a href="Modul-03_Fonaments-de-les-funcions/03.04_arguments-de-funcions.html">Arguments</a></li>
+                <li><a href="Modul-03_Fonaments-de-les-funcions/03.05_passar-per-valor-o-per-referencia.html">Valor vs Referència</a></li>
+                <li><a href="Modul-03_Fonaments-de-les-funcions/03.06_funcions-pures.html">Funcions pures</a></li>
+                <li><a href="Modul-03_Fonaments-de-les-funcions/03.07_first-class-objects.html">First class objects</a></li>
+                <li><a href="Modul-03_Fonaments-de-les-funcions/03.08_hoisting.html">Hoisting</a></li>
             </ol>
-        
-        
-    </ol>
+        </li>
+
+        <li>
+            <strong>Mòdul 04 - Arrays </strong>
+            <ol>
+                <li><a href="Modul-04_Arrays/04.01_arrays-i-els-seus-usos.php">Arrays i els seus usos</a></li>
+                <li><a href="Modul-04_Arrays/04.02_conceptes-basics-dels-arrays.php">Conceptes bàsics d'arrays</a></li>
+                <li><a href="Modul-04_Arrays/04.03_recorre-un-array.php">Recorre un array</a></li>
+                <li><a href="Modul-04_Arrays/04.04_operacions-funcionals-arrays.php">Operacions funcionals d'arrays</a></li>
+                <li><a href="Modul-04_Arrays/04.05_recorre-array-foreach.php">Recorre un array amb foreach</a></li>
+                <li><a href="Modul-04_Arrays/04.06_modificar-arrays-amb-map.php">Modificar arrays amb map</a></li>
+                <li><a href="Modul-04_Arrays/04.07_filtrar-elements-amb-filter.php">Filtrar elements d'un array amb filter</a></li>
+                <li><a href="Modul-04_Arrays/04.08_reduir-arrays-amb-reduce.php">Reduir arrays amb reduce</a></li>
+                <li><a href="Modul-04_Arrays/04.09_buscar-elements-amb-un-array.php">Buscar elements amb un array</a></li>
+                <li><a href="Modul-04_Arrays/04.10_spread-i-rest-syntax.php">Spread i rest syntax</a></li>
+                
+            </ol>
+        </li>
+    </ul>
 </body>
 </html>

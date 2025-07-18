@@ -1,0 +1,26 @@
+/* Estil per als botons de solució */
+button {
+    padding: 0.5em 1em;
+    margin: 0.5em 0;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+/* Estil pel bloc de codi */
+pre {
+    background-color: #f4f4f4;
+    padding: 1em;
+    border-left: 4px solid #007acc;
+    overflow-x: auto;
+}
+
+code {
+    font-family: Consolas, monospace;
+}
