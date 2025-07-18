@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First class objects</title>
+</head>
+<body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
+    <h1>First class objects</h1>
+
+    <p>
+        Les funcions es poden tractar com qualsevol altra dada a JavaScript, es poden guardar, passar i retornar com si fos un número o un text.
+    </p>
+
+    <p>
+        En JavaScript, les funcions són com caixes que es poden moure:      
+    </p>
+
+    <ul>
+        <li>Es poden guardar en una variable</li>
+        <li>Es poden enviar a una altra funció</li>
+        <li>Es poden retornar com a resultat</li>
+    </ul>
+    
+    <p>
+        És com si una funció fos un objecte més. Per això diem que són "objectes de primera classe" (first-class objects).
+    </p>
+
+    <h2>
+        Guardar funcions en una variable
+    </h2>
+
+    <p>
+        L'exemple més senzill és guardar una funció en una variable. Un cop assignem la funció (sense executar-la) a la variable, podem executar la funció des de la variable posant el nom de la variable i els dos parèntesis.  
+    </p>
+
+    <pre>
+        <code>
+            function hola() {
+            console.log("Hola!");
+            }
+
+            let direccio = hola;   // Guardem la funció a dins d'una variable
+            direccio();            // Executem la funció des de la variable amb el nom de la variable i els dos parèntesis!
+        </code>
+    </pre>
+    
+    <p>
+        Si executem el codi anterior, veurem que s'imprimeix "Hola!" per la consola.
+    </p>
+    
+    <p>
+        Quina avantatge ens dóna? Podem executar la funció quan vulguem cridant la variable a la qual li hem assignat la funció. Imagineu que tenim la tenim una funció que fa una cosa molt específica, i que volem executar-la en diferents moments del nostre codi. Podem guardar la funció en una variable i executar-la quan vulguem, sense necessitat de tornar a escriure la funció. Això ens fa el codi més llegible i més fàcil de mantenir.
+    </p>
+
+    <pre>
+        <code>
+            function hola() {
+            console.log("Hola!");
+            }
+
+            let direccio = hola;   // Guardem la funció a dins d'una variable
+            direccio();            // Executem la funció des de la variable UNA VEGDA
+            direccio();            // Executem la funció des de la variable ALTRA VEGADA
+            direccio();            // Executem la funció des de la variable UNA TERCERA VEGADA
+        </code>
+    </pre>
+
+       
+    <p>
+        Perquè fem <code>let direccio = hola;</code> i no fem <code>let direccio = hola();</code>;?
+    </p>
+
+    <p>
+        La resposta és és que <code>hola</code> és una funció, mentre que <code>hola()</code> és el resultat d'executar-la. Si fem <code>let direccio = hola();</code>, la variable <code>direccio</code> tindrà el valor <code>undefined</code> (ja que la funció no retorna res), i no podrem executar-la més tard amb <code>direccio();</code>.
+    </p>
+    
+    <p>
+        Com que les analogies ens ajuden a entendre el que estem fent, podem guardar la funció com si fos una recepta de cuina. La recepta ens diu com fer una cosa, però no el plat. Per fer el plat, hem de seguir la recepta. En aquest cas, la recepta és la funció, i seguir-la és executar-la quantes vegades vulguem al llarg de la setmana.
+    </p>
+
+    <h2>
+        Passar funcions com a arguments
+    </h2>
+    
+    <p>
+        Passar una funció com a argument a una funció és enviar una funció a una altra funció com si fos un número o un text. És com donar una nota amb instruccions perquè algú altre l’executi!
+    </p>
+
+    <pre>
+        <code>
+            function saluda() {
+            console.log("Hola!");
+            }
+
+            function executar(funcio) {
+            funcio(); // cridem la funció que ens han passat
+            }
+
+            executar(saluda);
+        </code>
+    </pre>
+
+    <p>
+        saluda és una funció que imprimeix "Hola!", executar és una funció que rep una altra funció, Li passem la funció saluda com a argument, i dins executar, fem que la funció rebuda s’executi. Podem passar una funció com a argument com si fos una dada, i l’altra funció la pot executar.
+    </p>
+
+    <p>
+        Per què ens pot passar una funció com a argument? Perquè ens permet fer codi més flexible i reutilitzable. Podem decidir què fer en cada moment, i una altra funció s’encarrega de quan fer-ho. Imagina que volem fer alguna cosa després de fer clic a un botó. 
+    </p>
+
+    <p>
+        El codi per fer-ho a JavaScript
+    </p>
+        
+    <pre>
+        <code>
+            button.addEventListener("click", saluda);
+        </code>
+    </pre>
+
+    <p>
+        Estem dient al navegador: “Quan algú faci clic al botó…” “…executa la funció saluda.” Li passem la funció com a argument, i el navegador l’executarà més endavant, quan calgui.
+    </p>
+
+    <h3>
+        Fes clic al botó
+    </h3>
+    
+    <button id="meuBoto">
+        Clica'm!
+    </button>
+
+    <script>
+        // Definim la funció
+        function saluda() {
+        alert("Hola! Has fet clic!");
+        }
+
+        // Busquem el botó i li passem la funció com a argument
+        let boto = document.getElementById("meuBoto");
+        boto.addEventListener("click", saluda);
+    </script>
+
+    <p>
+        Aqui teniu el codi que ho fa possible:  
+    </p>
+
+    <pre>
+            <code>  
+            &lt;h3>                                             // és una etiqueta h2 d'obertura
+                Fes clic al botó                                // el text
+            &lt;/h3>                                            // és una etiqueta h2 de tancament
+    
+            &lt;button id="meuBoto">                            // Posem un atribut identifier a la etiqueta d'obertura del button que genera el botó per poder-lo trobar. 
+                Clica'm!                                        // el text del botó
+            &lt;/button>                                        // tanquem l'etiqueta 
+
+            &lt;script>                                         // Definim el codi JavaScript dins de la etiqueta script
+                // Definim la funció
+                function saluda() {
+                alert("Hola! Has fet clic!");                   // Imprimim un missatge per pantalla
+                }
+
+                
+                let boto = document.getElementById("meuBoto");  // Agafem el botó al document pel seu id i li passem la funció com a argument
+                boto.addEventListener("click", saluda);         // el botó li passem la funció saluda com a argument a la funcio addeventListener
+            &lt;/script>                                        // tanquem el codi JavaScript amb la etiqueta script
+        </code>
+    </pre>
+
+    <h2>
+        Retornar una funció des d'una altra funció
+    </h2>
+
+    <p>
+        Una funció pot crear i retornar una altra funció. Això ens permet preparar "funcions a mida".
+    </p>
+
+    <h3>
+        exemple general
+    </h3>
+
+    <pre>
+        <code>
+            function creaMissatge() {
+                return function () {
+                    console.log("Hola!");
+                };
+            }
+            
+            let funcioNova = creaMissatge(); // ens retorna una nova funció
+            funcioNova(); // mostra "Hola!"   
+        </code>
+    </pre>
+
+    <p>
+        creaMissatge() no mostra res directament. Aquesta funció retorna una altra funció, que mostra "Hola!" (amb return function () { ... }). Guardem aquesta nova funció a funcioNova. Després, la cridem amb funcioNova()
+    </p>
+
+    <p>
+        Encara les podem fer més utils si hi posem paràmetres.
+    </p>
+
+    <pre>
+        <code>
+            function creaMissatge(text) {
+                return function () {
+                    console.log(text);
+                };
+            }
+
+            let hola = creaMissatge("Hola!");
+            let adéu = creaMissatge("Fins aviat!");
+
+            hola();   // Hola!
+            adéu();   // Fins aviat!
+        </code>
+    </pre>
+
+    <h2>
+        Conclusions
+    </h2>
+    
+    <p>
+        En JavaScript, les funcions es poden tractar com si fossin dades i obre moltes possibilitats!: es poden guardar, passar i retornar. Guardar una funció en una variable, passar una funció com a argument a una altra funció, retornar una funció des d'una altra funció... En aquest cas, les funcions són objectes de primera classe. Aquesta característica ens permet escriure codi més flexible, modular i reutilitzable. Més endavant veurem que això és essencial per: Fer callbacks (funcions que es criden després d'una acció), Fer servir addEventListener, setTimeout, map, filter, etc., Treballar amb funcions asíncrones i promeses.
+    </p>
+
+    <h2>
+        Exercicis
+    </h2>
+
+    <!-- Exercici 1 -->
+    <p>1️⃣ 
+        Crea una funció que digui "Hola!" i guarda-la en una variable. Executa-la.
+    </p>
+    
+    <button onclick="mostrarSolucio('solucio1')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio1" style="display:none;">
+        <code>
+            let saluda = function() {
+                console.log("Hola!");
+            };
+
+            saluda(); // Mostra "Hola!"
+        </code>
+    </pre>
+
+    <!-- Exercici 2 -->
+    <p>
+        2️⃣ Crea una funció <code>saludaNom</code> que rebi un nom i imprimeixi “Hola, [nom]!”
+    </p>
+    <button onclick="mostrarSolucio('solucio2')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio2" style="display:none;">
+        <code>
+            function saludaNom(nom) {
+                console.log("Hola, " + nom + "!");
+            }
+
+            saludaNom("Pau");
+        </code>
+    </pre>
+
+    <!-- Exercici 3 -->
+    <p>
+        3️⃣ Crea una funció que rebi un número i retorni el doble. Mostra el resultat amb <code>console.log</code>.
+    </p>
+    
+    <button onclick="mostrarSolucio('solucio3')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio3" style="display:none;">
+        <code>
+            function doble(num) {
+                return num * 2;
+            }
+
+            console.log(doble(4)); // 8
+        </code>
+    </pre>
+
+    <!-- Exercici 4 -->
+    <p>
+        4️⃣ Fes una funció que rebi dos números i retorni la seva mitjana.
+    </p>
+    
+    <button onclick="mostrarSolucio('solucio4')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio4" style="display:none;">
+        <code>
+            function mitjana(a, b) {
+                return (a + b) / 2;
+            }
+
+            console.log(mitjana(7, 9)); // 8
+        </code>
+    </pre>
+
+    <!-- Exercici 5 -->
+    <p>
+        5️⃣ Crea una funció que rebi una edat i retorni "Ets major d’edat" si té 18 o més, si no “Ets menor”.
+    </p>
+    
+    <button onclick="mostrarSolucio('solucio5')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio5" style="display:none;">
+        <code>
+            function comprovaEdat(edat) {
+                if (edat >= 18) {
+                    return "Ets major d’edat";
+                } else {
+                    return "Ets menor";
+                }
+            }
+
+        console.log(comprovaEdat(17)); // "Ets menor"
+        </code>
+    </pre>
+
+    <!-- Exercici 6 -->
+    <p>
+        6️⃣ Demana el nom amb <code>prompt</code> i passa’l a una funció que el posi en majúscules i el torni.
+    </p>
+    
+    <button onclick="mostrarSolucio('solucio6')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio6" style="display:none;">
+        <code>
+            function majuscules(nom) {
+                return nom.toUpperCase();
+            }
+
+            let nomUsuari = prompt("Com et dius?");
+            console.log(majuscules(nomUsuari));
+        </code>
+    </pre>
+
+    <!-- Exercici 7 -->
+    <p>
+        7️⃣ Fes una funció que rebi quantes hores passes amb videojocs i sèries, i torni un "nivell de friquisme" (text).
+    </p>
+    
+    <button onclick="mostrarSolucio('solucio7')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio7" style="display:none;">
+        <code>
+            function nivellFriqui(videojocs, series) {
+                let total = videojocs + series;
+                if (total > 8) return "Ets mega friqui 😅";
+                if (total > 4) return "Friqui moderat 😎";
+                return "Molt equilibrat 👍";
+            }
+
+            console.log(nivellFriqui(3, 2)); // "Friqui moderat 😎"
+        </code>
+    </pre>
+
+    <!-- Exercici 8 -->
+    <p>
+        8️⃣ Escriu una funció <code>missatgeDia</code> que rebi el dia de la setmana i retorni un missatge diferent.
+    </p>
+    
+    <button onclick="mostrarSolucio('solucio8')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio8" style="display:none;">
+        <code>
+            function missatgeDia(dia) {
+                if (dia === "dilluns") return "Ànims! Comença la setmana!";
+                if (dia === "divendres") return "Ja s'acosta el cap de setmana!";
+                return "Un altre dia qualsevol!";
+            }
+
+            console.log(missatgeDia("divendres")); // "Ja s'acosta el cap de setmana!"
+        </code>
+    </pre>
+
+    <!-- Exercici 9 -->
+    <p>
+        9️⃣ Fes una funció que calculi la nota final segons tres notes, i la guardi en una variable <code>notaFinal</code>.
+    </p>
+    
+    <button onclick="mostrarSolucio('solucio9')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio9" style="display:none;">
+        <code>
+            function calculaNota(n1, n2, n3) {
+                return (n1 + n2 + n3) / 3;
+            }
+
+            let notaFinal = calculaNota(7, 8, 6);
+            console.log("La nota final és: " + notaFinal);
+        </code>
+    </pre>
+
+    <!-- Exercici 10 -->
+    <p>
+        🔟 Demana l’any de naixement amb <code>prompt</code>, passa’l a una funció que retorni l’edat, i imprimeix-la.
+    </p>
+    
+    <button onclick="mostrarSolucio('solucio10')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio10" style="display:none;">
+        <code>
+            function calculaEdat(anyNaixement) {
+                let actual = 2025;
+                return actual - anyNaixement;
+            }
+
+            let any = Number(prompt("Quin any vas néixer?"));
+            console.log("Tens " + calculaEdat(any) + " anys.");
+        </code>
+    </pre>
+
+    <script>
+    /**
+     * Mostra o amaga un bloc d'HTML identificat per l'ID donat.
+     * Si el bloc est  amagat, el fa visible, i viceversa.
+     * 
+     * @param {string} id - L'ID del bloc d'HTML a mostrar o amagar.
+     * @example
+     *  // Mostra el bloc amb l'ID "solucio1"
+     *  mostrarSolucio('solucio1');
+     */
+    function mostrarSolucio(id) {
+        const bloc = document.getElementById(id);
+        // Si el bloc est  amagat, el fa visible, i viceversa
+        bloc.style.display = bloc.style.display === "none" ? "block" : "none";
+    }
+    </script>
+        
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>  
+</body>
+</html>

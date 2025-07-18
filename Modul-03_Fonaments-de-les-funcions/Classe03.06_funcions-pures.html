@@ -14,15 +14,51 @@
     <h1>Funcions pures</h1>
 
     <p>
-        Les funcions pures no produeixen efectes secundaris. 
+        Una <strong>funció pura</strong> és aquella que, donats uns mateixos valors d'entrada, sempre retorna el mateix resultat i <strong>no produeix efectes secundaris</strong> (com ara modificar variables externes, escriure per pantalla o accedir a fitxers).
     </p>
 
-    <h2>Un efecte secundari</h2>
+    <h2>Exemple de funció pura</h2>
 
     <p>
-        Presentem un array <code>let edats = [20]</code> amb un sol valor. Li passem una funció que fa variar l'unic valor de l'array.
+        La funció <code>suma</code> és pura perquè sempre retorna el mateix resultat per a uns mateixos valors d'entrada. Aquesta funció és pura perquè només utilitza els seus paràmetres i no depèn de res de fora ni modifica res fora.
+    </p>
     </p>
 
+      <pre>
+        <code>
+            function suma(a, b) {
+                return a + b;
+            }
+
+            console.log(suma(3, 4)); // Sempre retorna 7
+        </code>
+    </pre>
+
+    <h2>Un exemple de funció impura</h2>
+
+    <pre>
+        <code>
+            let total = 0;
+            
+            function afegeix(n) {
+                total += n;
+                return total;
+            }
+            
+            console.log(afegeix(5)); // El resultat dependrà del valor previ de total
+        </code>
+    </pre>
+    
+    <p>
+        Aquesta funció és <strong>impura</strong> perquè modifica una variable externa i el resultat pot variar encara que l'input sigui el mateix.
+    </p>
+    
+    <h2>Un altre funció impura</h2>
+
+    <p>
+        Malgrat no hagim vist els arrays, us presento la declaració i l'assignació d'un array <code>let edats = [20]</code> amb un sol valor. Li passem una funció <code>modificador</code> que modifica l'unic valor de l'array edats i, per tant, és impura.
+    </p>
+    
     <pre>
         <code>
             let edats = [20]
@@ -36,7 +72,7 @@
     </pre>
 
     <p>
-        Fem una copia de l'array perquè la funció sigui pura
+        Si volem que aquest funció sigui pura, fem una copia de l'array i modifiquem només la còpia de l'array.
     </p>
 
     <pre>
@@ -51,7 +87,77 @@
             console.log(edats);
         </code>
     </pre>
+
+    <h2>
+        Problema 1: Quin robot és més fiable?
+    </h2>
+
+    <p>
+        Tenim dos robots que fan sumes. Prova cadascun diverses vegades i fixa't en el resultat.
+    </p>
+
+    <h3>🤖 Robot A (funció pura)</h3>
+
+    <button onclick="provaRobotA()">Prova el Robot A</button>
+    <pre id="resultatA"></pre>
+
+    <h3>🤖 Robot B (funció impura)</h3>
+
+    <button onclick="provaRobotB()">Prova el Robot B</button>
+    <pre id="resultatB"></pre>
     
+    <script>
+        function robotA(a, b) {
+            return a + b;
+        }
+
+        function provaRobotA() {
+            const resultat = robotA(2, 3);
+            document.getElementById("resultatA").textContent = `robotA(2, 3) = ${resultat}`;
+        }
+
+        let error = Math.floor(Math.random() * 3); // pot ser 0, 1 o 2
+
+        function robotB(a, b) {
+            return a + b + error;
+        }
+
+        function provaRobotB() {
+            error = Math.floor(Math.random() * 3); // canvia cada cop!
+            const resultat = robotB(2, 3);
+            document.getElementById("resultatB").textContent = `robotB(2, 3) = ${resultat}`;
+        }
+    </script>
+    
+    <h2>
+        Problema 2: Quadrats
+    </h2>
+    
+    <p>
+        Escriu una funció pura que donat un array de números, retorni un nou array amb els seus quadrats.
+    </p>
+
+    <button onclick="mostrarSolucio()">
+        Mostra / Amaga solució
+    </button>
+
+    <pre id="solucio" style="display:none;">
+        <code>
+            function quadrats(arr) {
+                return arr.map(x => x * x);
+            }
+
+            console.log(quadrats([1, 2, 3, 4])); // [1, 4, 9, 16]
+        </code>
+    </pre>
+
+    <script>
+        function mostrarSolucio() {
+            const solucio = document.getElementById('solucio');
+            solucio.style.display = solucio.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
     <p>
         <a href="../index.html">Anar a l'índex</a>
     </p>  

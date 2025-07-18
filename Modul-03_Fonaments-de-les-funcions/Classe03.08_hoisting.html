@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoisting</title>
+</head>
+<body>
+    <p>
+        <a href="../index.html">Anar a l'índex</a>
+    </p>
+
+    <h1>Hoisting</h1>
+
+    <h2>
+        Què és el Hoisting?
+    </h2>
+    
+    <p>
+        Quan escrivim codi JavaScript, pot semblar que algunes variables i funcions "pugen" automàticament a dalt del codi, encara que estiguin escrites més avall. Això és el que anomenem <strong>hoisting</strong>.
+    </p>
+    
+    <p>
+        Amb el hoisting, JavaScript "prepara" les declaracions abans d'executar el codi, però <strong>no els valors</strong>. Això afecta sobretot quan fem servir <code>var</code> o declarem funcions amb el format clàssic.
+    </p>
+
+    <h2>
+        Exemple 1: Hoisting amb funcions
+    </h2>
+    
+    <p>
+        En aquest exemple, cridem una funció abans de declarar-la, i tot i així funciona!
+    </p>
+    
+    <pre>
+        <code>
+            diguesHola();
+
+            function diguesHola() {
+                console.log("Hola, món!");
+            }
+        </code>
+    </pre>
+    <p>
+        Funciona perquè les funcions declarades així són pujades (hoisting) automàticament al principi del codi.
+    </p>
+
+    <h2>
+        Exemple 2: Hoisting amb <code>var</code>
+    </h2>
+    
+    <p>
+        Amb les variables declarades amb <code>var</code>, el nom sí que es puja, però no el valor.
+    </p>
+   
+    <pre>
+        <code>
+            console.log(nom); // undefined
+
+            var nom = "Joana";
+    </code>
+    </pre>
+    
+    <p>
+        Tot i que sembla que hauria de donar error, no ho fa: el nom de la variable s'ha "pujat", però encara no té valor.
+    </p>
+
+    <h2>
+        Exemple 3: Hoisting amb <code>let</code> o <code>const</code>
+    </h2>
+    
+    <p>
+        Amb <code>let</code> i <code>const</code>, també es fa hoisting però d’una manera diferent: es reserven, però <strong>no es poden fer servir abans de ser declarades</strong>.
+    </p>
+        
+    <pre>
+        <code>
+            console.log(edat); // ReferenceError
+
+            let edat = 17;
+        </code>
+    </pre>
+    <p>
+        Això es coneix com la <strong>temporal dead zone</strong>: el temps entre que es reserva la variable i se li assigna un valor.
+    </p>
+
+    <h2>
+        Conclusió
+    </h2>
+    
+    <p>
+        El <strong>hoisting</strong> és una funcionalitat de JavaScript que pot sorprendre: les funcions declarades es poden cridar abans d’escriure-les, i les variables declarades amb <code>var</code> també es "pugen", però amb valor <code>undefined</code>. Amb <code>let</code> i <code>const</code>, en canvi, es genera un error si les utilitzem abans de declarar-les. Per això es recomana declarar-ho tot abans d’utilitzar-ho per evitar problemes estranys.
+    </p>
+
+    <h2>
+        Exercici
+    </h2>
+
+    <p>
+        Què mostrarà per pantalla aquest codi? Justifica la teva resposta i comprova-ho al navegador:
+    </p>
+
+    <pre>
+        <code>
+            console.log(puntuacio);
+            saluda();
+
+            var puntuacio = 10;
+
+            function saluda() {
+                console.log("Benvingut!");
+            }
+        </code>
+    </pre>
+
+    <button onclick="mostrarSolucio('solucio3')">
+        Mostra / Amaga solució
+    </button>
+    
+    <pre id="solucio3" style="display:none;">
+        <code>
+            // Sortida:
+            undefined
+            Benvingut!
+
+            // Explicació:
+            JavaScript fa hoisting de la variable 'puntuacio', però només declara el nom (no el valor), 
+            per això 'console.log(puntuacio)' mostra 'undefined'. 
+            La funció 'saluda' també puja sencera, així que es pot cridar abans de declarar-la.
+        </code>
+    </pre>
+
+    <script>
+    /**
+     * Mostra o amaga un bloc d'HTML identificat per l'ID donat.
+     * Si el bloc est  amagat, el fa visible, i viceversa.
+     * 
+     * @param {string} id - L'ID del bloc d'HTML a mostrar o amagar.
+     * @example
+     *  // Mostra el bloc amb l'ID "solucio1"
+     *  mostrarSolucio('solucio1');
+     */
+    function mostrarSolucio(id) {
+        const bloc = document.getElementById(id);
+        // Si el bloc est  amagat, el fa visible, i viceversa
+        bloc.style.display = bloc.style.display === "none" ? "block" : "none";
+    }
+    </script>
+</body>
+</html>
