@@ -15,7 +15,7 @@ include("../includes/head.php");
 </h1>
 
 <p>
-    En JavaScript, sovint ens trobem amb expressions i patrons que es poden escriure de forma més breu i elegant. Aquestes es coneixen com a <strong>shorthand syntax</strong> o “sintaxi abreujada”. Aprendre aquestes formes ens permet fer el nostre codi més llegible i professional.
+    En JavaScript, sovint ens trobem amb expressions i patrons que es poden escriure de forma més breu i elegant. Aquestes es coneixen en el cas de declarar propietats d'objectes com a <strong>shorthand properties</strong> i en el cas de les funcions <strong>shorthand syntax</strong>. . Aprendre aquestes formes ens permet fer el nostre codi més llegible i professional.
 </p>
 
 <h2>
@@ -26,32 +26,86 @@ include("../includes/head.php");
     Si el nom de la propietat és igual al nom de la variable, podem evitar repetir-lo:
 </p>
 
+<p>
+  En lloc de fer:
+</p>
+
 <pre>
     <code>
         let nom = "Joana";
-        let edat = 22;
 
         let persona = {
-        nom,
-        edat
+        nom: nom
+        };
+    </code>
+</pre>
+
+<p>
+    Posariem només la variable sola i el valor de la variable seria el valor de la propietat.
+</p>
+
+<p>
+    Per tant, el codi anterior es podria escriure així:
+</p>
+
+<pre>
+    <code>
+        let nom = "Joana";
+
+        let persona = {
+        nom
+        };
+    </code>
+</pre>
+
+<p>
+    També podem fer el següent
+</p>
+
+<pre>
+    <code>
+        let nom = "Joana";
+
+        let persona = {
+        nom
         };
 
         console.log(persona); // { nom: "Joana", edat: 22 }
     </code>
 </pre>
 
+<p>
+    El valor de la variable <code>nom</code> s'assigna al valor de la propietat <code>nom</code> de l'objecte. Es fa una còpia i s'assigna. Si ara posem <code>nom = "Oriol"</code>, el valor de la propietat no seria Oriol, sino que Joana.
+</p>
+
 <h2>
     Mètodes amb sintaxi abreujada
 </h2>
 
 <p>
-    En lloc d'escriure una funció amb la paraula <code>function</code>, podem fer:
+Vam aprendre que podem assignar una funció a una propietat d'un objecte:
 </p>
 
 <pre>
     <code>
         let gos = {
-        bordar() {
+            bordar: function() {
+                console.log("Bup bup!");
+            }
+        };
+
+        gos.bordar(); // Bup bup!
+    </code>
+<pre>
+
+<p>
+    En lloc d'escriure una funció amb la paraula <code>function</code>,
+</p>
+
+<pre>
+    <code>
+        let gos = {
+        bordar: function () {
         console.log("Bup bup!");
         }
         };
@@ -59,6 +113,57 @@ include("../includes/head.php");
         gos.bordar(); // Bup bup!
     </code>
 </pre>
+
+<p>
+    podem fer-ho amb la sintaxi abreujada:
+</p>
+
+<pre>
+    <code>
+        let gos = {
+            bordar() {
+            console.log("Bup bup!");
+            }
+        };          
+
+        gos.bordar(); // Bup bup!
+    </code>
+</pre>
+
+<p>
+Què hem fet? Hem tret la propietat i els dos punts, la paraula <code>function</code> i hem posat directament la funció.
+</p>
+
+<p>
+Això és molt útil quan tenim molts mètodes en un objecte i ho podem fer això amb tots els mètodes d'un objecte:
+</p>
+
+<pre>
+    <code>
+    let gos = {
+        bordar() {
+            console.log("Bup bup!");
+        },
+        menjar() {
+            console.log("Nyam nyam nyam!");
+        }
+    };
+
+    gos.bordar(); // Bup bup!
+    gos.menjar(); // Nyam nyam nyam!
+    </code>
+</pre>
+
+<p>
+    
+</p>
+
+<h2>
+    Paràmetres per defecte
+</h2>
+
+<p>
+    Podem assignar un valor predeterminat a un paràmetre si
 
 <h2>
     Valors per defecte en paràmetres

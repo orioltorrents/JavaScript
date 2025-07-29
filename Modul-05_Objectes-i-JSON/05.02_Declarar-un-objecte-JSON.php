@@ -114,6 +114,28 @@ include("../includes/head.php");
   </pre>
 
   <h2>
+  Funcions dins d’un objecte
+  </h2>
+
+  <p>
+    Podem posar funcions com a valors:
+  </p>
+
+  <pre>
+    <code>
+      gos = {
+        nom: "Pintxu",
+        raça: "Gos d'aigua",
+        bordar: function() {
+          console.log("Bup bup!");
+        }
+      }
+
+      gos.bordar();
+    </code>
+  </pre>
+
+  <h2>
     Exercicis
   </h2>
 
