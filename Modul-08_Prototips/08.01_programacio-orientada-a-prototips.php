@@ -1,5 +1,5 @@
 <?php
-$titol = "El context explicat";
+$titol = "Programació orientada a prototips";
 include("../includes/head.php");
 ?>
 
@@ -11,7 +11,7 @@ include("../includes/head.php");
   </p>
 
   <h1>
-    El context explicat
+    Programació orientada a prototips
   </h1>
 
   <!-- Contingut de la pàgina aqui -->

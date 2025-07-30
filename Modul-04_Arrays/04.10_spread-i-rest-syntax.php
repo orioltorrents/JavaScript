@@ -25,10 +25,55 @@ include("../includes/head.php");
     </li>
   </ul>
 
+  <p>
+    Necessitem introduir el concepte de iterable per entendre l'operador <code>...</code>. Qualsevol objecte de JD que pot ser separat en elements pot ser considerat iterable. Un iterable és un objecte que conté elements que podem recorrer amb un bucle. Els arrays, els strings i els objectes són iterables. Un array conté elements iterables que són els elements de l'array. Un string conté iterables que són els caracters del string. Un object és un iterable perquè els propietats de l'objecte els podem recorrer o iterar. La spread syntax ens permet expandir arrays i objectes a l'hora de passar arguments a una funció o elements a un array. 
+  </p>
+
   <h2>
-    Spread Syntax
+    Spread Syntax (....) o sintaxi d'expansió
   </h2>
 
+  <p>
+    Per expandir un array o objecte utilitzem l'operador <code>...</code> a l'hora de passar arguments a una funció o elements a un array.
+  </p>
+
+  <pre>
+    <code>
+      let array = [1, 2, 3];
+      console.log(array); // [1, 2, 3]
+      console.log(...array); // 1 2 3
+    </code>
+  </pre>
+
+  <p>
+    Funciona també amb strings. Els caracters del string es converteixen en elements de l'array.
+  </p>
+
+  <pre>
+    <code>
+      let string = "hola";
+      console.log(string); // hola
+      console.log(...string); // h o l a
+    </code> 
+  </pre>
+
+  <p>
+    Funciona també amb objectes. Les propietats de l'objecte es converteixen en elements de l'array.
+  </p>
+
+  <pre>
+    <code>
+      let objecte = {
+        nom: "Pintxu",
+        edat: 12,
+        raça: "Gos d'aigua"
+      }
+
+      console.log(objecte); // { nom: "Pintxu", edat: 12, raça: "Gos d'aigua" }
+      console.log(...objecte); // nom Pintxu edat 12 raça Gos d'aigua 
+    </code>
+  </pre>
+  
   <p>
     El spread ens permet copiar o combinar arrays fàcilment.
   </p>
@@ -55,6 +100,32 @@ include("../includes/head.php");
   <p>
     El rest ens permet agrupar múltiples arguments d'una funció en un sol array.
   </p>
+
+  <p>
+    L'exemple més fàcil és aquest
+  </p>
+
+  <pre>
+    <code>
+      function demo(...array) {
+        console.log(array);
+      }
+      demo(1, 2, 3); // [1, 2, 3]
+    </code>
+  </pre>
+
+  <p>
+      Un altre exemple    
+  </p>
+
+  <pre>
+    <code>
+      function mitjana(nom,...notes) {
+        console.log(nom, notes);
+      }
+      mitjana("Pau", 8, 9, 10); // Pau [8, 9, 10]
+    </code>
+  </pre>
 
   <h3>
     Exemple: suma amb rest
